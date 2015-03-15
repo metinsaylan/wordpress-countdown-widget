@@ -1,4 +1,4 @@
-=== Wordpress Countdown Widget ===
+﻿=== Wordpress Countdown Widget ===
 Contributors: mattsay
 Donate link: http://shailan.com/donate
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
