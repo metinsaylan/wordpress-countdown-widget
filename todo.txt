@@ -1,2 +1,0 @@
-* Add layout options
-* Add image styling

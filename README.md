@@ -12,7 +12,7 @@
 
 >**Tested up to**: 4.4.2
 
->**Stable tag**: 2.5.8
+>**Stable tag**: 2.5.9
 
 >**License**: GPLv2 or later
 
@@ -52,7 +52,7 @@ Please back up your precious data before upgrading plugins.
 
 ## Changelog 
 
-### 2.5.8
+### 2.5.9
 * Tested upto WP 4.4.2
 * Fixed quotes in event title
 * Fixed language errors. Kudos for [Carlos Hix](http://br.meet-magento.com/).
