@@ -3,11 +3,17 @@
 *Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!*
 
 >**Contributors**: mattsay
+
 >**Donate link**: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2UF8Y5ZSHAGZL
+
 >**Tags**: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
+
 >**Requires at least**: 2.8
+
 >**Tested up to**: 4.4.2
+
 >**Stable tag**: 2.5.8
+
 >**License**: GPLv2 or later
 
 ## Description 
