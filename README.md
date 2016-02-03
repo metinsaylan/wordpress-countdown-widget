@@ -3,31 +3,25 @@
 *Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!*
 
 >**Contributors**: mattsay
-
->**Donate link**: http://shailan.com/donate
-
+>**Donate link**: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2UF8Y5ZSHAGZL
 >**Tags**: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
-
 >**Requires at least**: 2.8
-
->**Tested up to**: 4.0
-
->**Stable tag**: 2.5.7
-
+>**Tested up to**: 4.4.2
+>**Stable tag**: 2.5.8
 >**License**: GPLv2 or later
-
-
 
 ## Description 
 
-Add jQuery count-down/count-up timers to your blog sidebar easily. Supports color customizations & multiple instances. Just drag'n drop. No coding required! Brought to you by [Shailan.com](http://shailan.com/).
+Add jQuery count-down/count-up timers to your blog sidebar easily. Supports color customizations & multiple instances. Just drag'n drop. No coding required! Brought to you by [metinsaylan](http://metinsaylan.com/).
 
 *Documentation & Simple Tutorials to get you started:*
 
-* [Countdown Widget Help](http://shailan.com/wordpress/plugins/countdown/help/)
-* [Countdown Shortcode Usage](http://shailan.com/2276/how-to-add-a-countdown-to-your-post-using-shortcode/)
-* [Customizing Countdown Widget Using CSS](http://shailan.com/1825/customizing-countdown-widget-using-css/)
-* [Creating a Halloween Countdown on your sidebar](http://shailan.com/4621/get-halloween-countdown-ready/)
+* [Countdown Widget Help](http://metinsaylan.com/wordpress/plugins/countdown/help/)
+* [Countdown Shortcode Usage](http://metinsaylan.com/4579/how-to-add-a-countdown-to-your-post-using-shortcode/)
+* [Customizing Countdown Widget Using CSS](http://metinsaylan.com/1825/customizing-countdown-widget-using-css/)
+* [Creating a Halloween Countdown on your sidebar](http://metinsaylan.com/4621/get-halloween-countdown-ready/)
+
+Visit source on [github](https://github.com/shailancom/wordpress-countdown-widget)
 
 ## Installation 
 
@@ -40,7 +34,7 @@ Add jQuery count-down/count-up timers to your blog sidebar easily. Supports colo
 
 = Any questions? =
 
-You can ask your questions [here](http://shailan.com/wordpress/plugins/countdown/help/)
+You can ask your questions [here](https://github.com/shailancom/wordpress-countdown-widget/issues)
 
 ## Screenshots 
 
@@ -51,6 +45,11 @@ You can ask your questions [here](http://shailan.com/wordpress/plugins/countdown
 Please back up your precious data before upgrading plugins.
 
 ## Changelog 
+
+### 2.5.8
+* Tested upto WP 4.4.2
+* Fixed quotes in event title
+* Fixed language errors. Kudos for [Carlos Hix](http://br.meet-magento.com/).
 
 ### 2.5.5 
 * Tested: upto WP 4.0
@@ -85,10 +84,10 @@ Please back up your precious data before upgrading plugins.
 * Fixed: Background color issue with the latest version.
 
 ### 2.4 
-* Added: Shortcode support. Read more on [countdown shortcode usage](http://shailan.com/2276/how-to-add-a-countdown-to-your-post-using-shortcode/)
+* Added: Shortcode support. Read more on [countdown shortcode usage](http://metinsaylan.com/2276/how-to-add-a-countdown-to-your-post-using-shortcode/)
 
 ### 2.3.1 
-* Changed default format string. See [formatting help](http://shailan.com/wordpress/plugins/countdown/help/#format) for more details.
+* Changed default format string. See [formatting help](http://metinsaylan.com/wordpress/plugins/countdown/help/#format) for more details.
 
 ### 2.3 
 * Removed border around the countdown.
