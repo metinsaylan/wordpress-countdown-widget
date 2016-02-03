@@ -1,11 +1,13 @@
 <?php 
 /*
-Plugin Name: Countdown Widget
-Plugin URI: http://metinsaylan.com/wordpress/plugins/countdown/
-Description: A beautiful jquery countdown widget. Allows Multiple instances, Shortcode usage, and Customizations. Powered by: <a href="http://metinsaylan.com" title="Wordpress, Web design, Freelancing">metinsaylan</a>.
-Version: 2.5.9
-Author: Metin Saylan
-Author URI: http://metinsaylan.com/
+* Plugin Name: Countdown Widget
+* Plugin URI: http://metinsaylan.com/wordpress/plugins/countdown/
+* Description: A beautiful jquery countdown widget. Allows Multiple instances, Shortcode usage, and Customizations. Powered by: <a href="http://metinsaylan.com" title="Wordpress, Web design, Freelancing">metinsaylan</a>.
+* Version: 2.5.9
+* Author: Metin Saylan
+* Author URI: http://metinsaylan.com/
+* Text Domain: countdown-widget
+* Domain Path: /lang
 */
 
 global $countdown_shortcode_ids;
@@ -16,8 +18,8 @@ global $countdown_shortcode_ids;
 class shailan_CountdownWidget extends WP_Widget {
     /** constructor */
     function __construct() {
-		$widget_ops = array('classname' => 'shailan_CountdownWidget', 'description' => __( 'jQuery Countdown/up widget' ) );
-		$this->WP_Widget('shailan-countdown-widget', __('CountDown/Up Timer'), $widget_ops);
+		$widget_ops = array('classname' => 'shailan_CountdownWidget', 'description' => __( 'jQuery Countdown/up widget' , 'countdown-widget') );
+		$this->WP_Widget('shailan-countdown-widget', __('CountDown/Up Timer', 'countdown-widget'), $widget_ops);
 		$this->alt_option_name = 'widget_shailan_countdown';	
 		
 		// localization
@@ -227,27 +229,27 @@ class shailan_CountdownWidget extends WP_Widget {
 			</script>
 		</div>		
 		
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title:'); ?> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#title" target="_blank" rel="external">(?)</a></small> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title:', 'countdown-widget'); ?> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#title" target="_blank" rel="external">(?)</a></small> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
 			
-		<p><label for="<?php echo $this->get_field_id('event'); ?>"><?php _e('Event Title:'); ?> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#event-title" target="_blank" rel="external">(?)</a></small> <input class="widefat" id="<?php echo $this->get_field_id('event'); ?>" name="<?php echo $this->get_field_name('event'); ?>" type="text" value="<?php echo $event; ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id('event'); ?>"><?php _e('Event Title:', 'countdown-widget'); ?> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#event-title" target="_blank" rel="external">(?)</a></small> <input class="widefat" id="<?php echo $this->get_field_id('event'); ?>" name="<?php echo $this->get_field_name('event'); ?>" type="text" value="<?php echo $event; ?>" /></label></p>
 		
-		<p><label for="<?php echo $this->get_field_id('direction'); ?>"> <?php _e('Count Down/Up :'); ?></label>
+		<p><label for="<?php echo $this->get_field_id('direction'); ?>"> <?php _e('Count Down/Up :', 'countdown-widget'); ?></label>
 			<select name="<?php echo $this->get_field_name('direction'); ?>" id="<?php echo $this->get_field_id('direction'); ?>" >
 				<option value="down" <?php if($direction == "down") { ?> selected="selected" <?php } ?>>Down</option>
 				<option value="up" <?php if($direction == "up") { ?> selected="selected" <?php } ?>>Up</option>
 			</select> <a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#direction">(?)</a>
 		</p>
 		
-		<p><label for="<?php echo $this->get_field_id('month'); ?>"><?php _e('Date:'); ?></label><input id="<?php echo $this->get_field_id('month'); ?>" name="<?php echo $this->get_field_name('month'); ?>" type="text" value="<?php echo $month; ?>" size="2" maxlength="2" />/<input id="<?php echo $this->get_field_id('day'); ?>" name="<?php echo $this->get_field_name('day'); ?>" type="text" value="<?php echo $day; ?>" size="2" maxlength="2" />/<input id="<?php echo $this->get_field_id('year'); ?>" name="<?php echo $this->get_field_name('year'); ?>" type="text" value="<?php echo $year; ?>" size="4" maxlength="4" /><br /> 
+		<p><label for="<?php echo $this->get_field_id('month'); ?>"><?php _e('Date:', 'countdown-widget'); ?></label><input id="<?php echo $this->get_field_id('month'); ?>" name="<?php echo $this->get_field_name('month'); ?>" type="text" value="<?php echo $month; ?>" size="2" maxlength="2" />/<input id="<?php echo $this->get_field_id('day'); ?>" name="<?php echo $this->get_field_name('day'); ?>" type="text" value="<?php echo $day; ?>" size="2" maxlength="2" />/<input id="<?php echo $this->get_field_id('year'); ?>" name="<?php echo $this->get_field_name('year'); ?>" type="text" value="<?php echo $year; ?>" size="4" maxlength="4" /><br /> 
 		<small>MM DD YYYY</small> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#date" target="_blank" rel="external">(?)</a></small></p>
 		
-		<p><label for="<?php echo $this->get_field_id('hour'); ?>"><?php _e('Time:'); ?></label><input id="<?php echo $this->get_field_id('hour'); ?>" name="<?php echo $this->get_field_name('hour'); ?>" type="text" value="<?php echo $hour; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('minutes'); ?>" name="<?php echo $this->get_field_name('minutes'); ?>" type="text" value="<?php echo $minutes; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('seconds'); ?>" name="<?php echo $this->get_field_name('seconds'); ?>" type="text" value="<?php echo $seconds; ?>" size="4" maxlength="4" /><br /> 
+		<p><label for="<?php echo $this->get_field_id('hour'); ?>"><?php _e('Time:', 'countdown-widget'); ?></label><input id="<?php echo $this->get_field_id('hour'); ?>" name="<?php echo $this->get_field_name('hour'); ?>" type="text" value="<?php echo $hour; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('minutes'); ?>" name="<?php echo $this->get_field_name('minutes'); ?>" type="text" value="<?php echo $minutes; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('seconds'); ?>" name="<?php echo $this->get_field_name('seconds'); ?>" type="text" value="<?php echo $seconds; ?>" size="4" maxlength="4" /><br /> 
 		<small>HH:MM:SS</small> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#time" target="_blank" rel="external">(?)</a></small></p>
 		
-		<p><label for="<?php echo $this->get_field_id('format'); ?>"><?php _e('Format:'); ?> <input id="<?php echo $this->get_field_id('format'); ?>" name="<?php echo $this->get_field_name('format'); ?>" class="widefat" type="text" value="<?php echo $format; ?>" size="10" maxlength="8" /></label><br /> 
+		<p><label for="<?php echo $this->get_field_id('format'); ?>"><?php _e('Format:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('format'); ?>" name="<?php echo $this->get_field_name('format'); ?>" class="widefat" type="text" value="<?php echo $format; ?>" size="10" maxlength="8" /></label><br /> 
 		<small>(Default : yowdHMS)</small> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#format" target="_blank" rel="external">(?)</a></small> </p>
 		
-		<p><label for="<?php echo $this->get_field_id('timezone'); ?>"><?php _e('Timezone :'); ?>
+		<p><label for="<?php echo $this->get_field_id('timezone'); ?>"><?php _e('Timezone :', 'countdown-widget'); ?>
 			<select name="<?php echo $this->get_field_name('timezone'); ?>" id="<?php echo $this->get_field_id('timezone'); ?>" >
 			<?php 
 				foreach ( $this->timezones as $key=>$name ) {
@@ -259,16 +261,16 @@ class shailan_CountdownWidget extends WP_Widget {
 			?>
 			</select></label> <a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#timezone">(?)</a></p>
 		
-		<p><label for="<?php echo $this->get_field_id('color'); ?>"><?php _e('Color:'); ?> <input id="<?php echo $this->get_field_id('color'); ?>" name="<?php echo $this->get_field_name('color'); ?>" class="widefat" type="text" value="<?php echo $color; ?>" size="6" /></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#color" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('color'); ?>"><?php _e('Color:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('color'); ?>" name="<?php echo $this->get_field_name('color'); ?>" class="widefat" type="text" value="<?php echo $color; ?>" size="6" /></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#color" target="_blank" rel="external">(?)</a></small></p>
 		
-		<p><label for="<?php echo $this->get_field_id('bgcolor'); ?>"><?php _e('Background color:'); ?> <input id="<?php echo $this->get_field_id('bgcolor'); ?>" name="<?php echo $this->get_field_name('bgcolor'); ?>" class="widefat" type="text" value="<?php echo $bgcolor; ?>" size="6" /></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#background-color" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('bgcolor'); ?>"><?php _e('Background color:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('bgcolor'); ?>" name="<?php echo $this->get_field_name('bgcolor'); ?>" class="widefat" type="text" value="<?php echo $bgcolor; ?>" size="6" /></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#background-color" target="_blank" rel="external">(?)</a></small></p>
 		
-		<p><label for="<?php echo $this->get_field_id('width'); ?>"><?php _e('Width:'); ?> <input id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo $width; ?>" size="4" maxlength="4" />px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#width" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('width'); ?>"><?php _e('Width:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo $width; ?>" size="4" maxlength="4" />px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#width" target="_blank" rel="external">(?)</a></small></p>
 		
-		<p><label for="<?php echo $this->get_field_id('radius'); ?>"><?php _e('Border Radius:'); ?> <input id="<?php echo $this->get_field_id('radius'); ?>" name="<?php echo $this->get_field_name('radius'); ?>" type="text" value="<?php echo $radius; ?>" size="4" maxlength="4" />px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#border-radius" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('radius'); ?>"><?php _e('Border Radius:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('radius'); ?>" name="<?php echo $this->get_field_name('radius'); ?>" type="text" value="<?php echo $radius; ?>" size="4" maxlength="4" />px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#border-radius" target="_blank" rel="external">(?)</a></small></p>
 		
 		<p><input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>"<?php checked( $link ); ?> />
-		<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e( 'Remove link' ); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#remove-link" target="_blank" rel="external">(?)</a></small></p>
+		<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e( 'Remove link' , 'countdown-widget'); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#remove-link" target="_blank" rel="external">(?)</a></small></p>
 		
 		<div class="widget-control-actions">
 			<p><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/" >Help</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2UF8Y5ZSHAGZL" >Donate</a></p>
