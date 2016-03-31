@@ -19,7 +19,7 @@ class shailan_CountdownWidget extends WP_Widget {
     /** constructor */
     function __construct() {
 		$widget_ops = array('classname' => 'shailan_CountdownWidget', 'description' => __( 'jQuery Countdown/up widget' , 'countdown-widget') );
-		$this->WP_Widget('shailan-countdown-widget', __('CountDown/Up Timer', 'countdown-widget'), $widget_ops);
+		parent::__construct('shailan-countdown-widget', __('CountDown/Up Timer', 'countdown-widget'), $widget_ops);
 		$this->alt_option_name = 'widget_shailan_countdown';	
 		
 		// localization
