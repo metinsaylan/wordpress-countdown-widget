@@ -7,7 +7,6 @@
 * Author: Metin Saylan
 * Author URI: http://metinsaylan.com/
 * Text Domain: countdown-widget
-* Domain Path: /lang
 */
 
 global $countdown_shortcode_ids;
