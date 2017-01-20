@@ -1,6 +1,6 @@
 ﻿=== Wordpress Countdown Widget ===
 Contributors: mattsay
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2UF8Y5ZSHAGZL
+Donate link: http://metinsaylan.com/donate
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
 Requires at least: 2.8
 Tested up to: 4.4.2
