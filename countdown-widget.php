@@ -33,6 +33,9 @@ class shailan_CountdownWidget extends WP_Widget {
 			'month'		=> date( 'm' ),
 			'day'		=> date( 'd' ),
 			'year'		=> date( 'Y' ),
+			
+			'date'		=> date( 'd-m-Y' ),
+			
 			'hour'		=> ( gmdate( 'H' ) + $current_offset + 1 ),
 			'minutes'	=> date( 'i' ),
 			'seconds'	=> date( 's' ),
