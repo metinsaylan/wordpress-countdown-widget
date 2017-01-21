@@ -141,7 +141,7 @@ class shailan_CountdownWidget extends WP_Widget {
 (function( $ ) {
 	$(document).ready(function($) {
 		var event_month = <?php echo $month; ?> - 1;
-		desc = '<?php $event = htmlspecialchars( $event, ENT_QUOTES); echo $event; ?>';
+		desc = '<?php $event = addslashes(force_balance_tags($event)); echo $event; ?>';
 		eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0);
 		$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({
 			<?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate, 
@@ -172,7 +172,9 @@ class shailan_CountdownWidget extends WP_Widget {
 		$widget_options = wp_parse_args( $instance, $this->defaults );
 		extract( $widget_options, EXTR_SKIP );
 		
-		$event = esc_attr($event);
+		$event_display = addslashes($event);
+		$event = htmlspecialchars( force_balance_tags( $event ) );
+		
 		if( !empty($instance['link']) ){ $link = (bool) $link; }
 		
 		
