@@ -209,11 +209,15 @@ class shailan_CountdownWidget extends WP_Widget {
 					<?php if( $bgcolor != '' ){ ?>
 					$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('backgroundColor', '<?php echo $bgcolor; ?>');
 					<?php } ?>
+<script type="text/javascript"> 
+<!--//
+(function( $ ) {
 
-				});
-			//-->
-			</script>
-		</div>		
+
+})(jQuery);
+//-->
+</script>
+		</div>	
 		
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title:', 'countdown-widget'); ?> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#title" target="_blank" rel="external">(?)</a></small> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
 			
