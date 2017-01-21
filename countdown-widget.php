@@ -15,6 +15,7 @@ global $countdown_shortcode_ids;
  * Shailan Countdown Widget Class
  */
 class shailan_CountdownWidget extends WP_Widget {
+	
     /** constructor */
     function __construct() {
 		$widget_ops = array( 'classname' => 'shailan_CountdownWidget', 'description' => __( 'jQuery Countdown/up widget' , 'countdown-widget') );
@@ -39,6 +40,7 @@ class shailan_CountdownWidget extends WP_Widget {
 			'hour'		=> ( gmdate( 'H' ) + $current_offset + 1 ),
 			'minutes'	=> date( 'i' ),
 			'seconds'	=> date( 's' ),
+
 			'format'	=> 'yowdHMS',
 			'color'		=> '000000',
 			'bgcolor'	=> '',
@@ -104,6 +106,12 @@ class shailan_CountdownWidget extends WP_Widget {
 		
 		$style = "";
 		
+		if ( ( $timestamp = strtotime( $args['date'] ) ) !== false ) {
+			$month 	= date("n", $timestamp );
+			$day 	= date("j", $timestamp );
+			$year 	= date("Y", $timestamp );
+		}
+		
 		// If this is not a widget
 		if( isset( $isWidget ) && false === $isWidget ){
 			
@@ -112,12 +120,15 @@ class shailan_CountdownWidget extends WP_Widget {
 			if(!empty($bgcolor)){ 
 				$style .= "background-color:".$bgcolor.";"; 
 			} 
+			
 			if(!empty($color)){ $style .=  " color:".$color. ";"; }
 			if(!empty($width) && $width>0){ $style .= " width:".$width."px;"; }
 			if(!empty($radius) && $radius>0){ $style .= " border-radius:".$radius."px;"; }
 				$style .= " margin:0px auto; \"";
 
 		}
+		
+		
 			
 			?>
 				  <?php echo $before_widget; ?>
@@ -185,7 +196,9 @@ class shailan_CountdownWidget extends WP_Widget {
     }
 
     function form($instance) {
+		
 		global $post, $countdown_shortcode_ids;
+		
 		$widget_options = wp_parse_args( $instance, $this->defaults );
 		extract( $widget_options, EXTR_SKIP );
 		
@@ -194,37 +207,44 @@ class shailan_CountdownWidget extends WP_Widget {
 		
 		if( !empty($instance['link']) ){ $link = (bool) $link; }
 		
+		if ( ( $timestamp = strtotime( $args['date'] ) ) !== false) {
+			$month 	= date("n", $timestamp );
+			$day 	= date("j", $timestamp );
+			$year 	= date("Y", $timestamp );
+		}
 		
 		$countdown_shortcode_ids++;
 	
         ?>
 		<div id="countdown-preview">
 			<div id="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>" class="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?> countdown"></div>
-			<script type="text/javascript"> 
-			<!--//
-			// Dom Ready
-				jQuery(document).ready(function($) {
-					var event_month = <?php echo $month; ?> - 1;
-					desc = '<?php $event = htmlspecialchars( $event, ENT_QUOTES); echo $event; ?>';
-					eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0);
-					$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({
-						<?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate, 
-						description: desc,  
-						format: '<?php echo $format; ?>'<?php if($timezone != 'SCW_NONE'){ ?>,
-						timezone: <?php echo $timezone; } ?>
-					});
-					
-					<?php if( $color != '' ){ ?>
-					$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('color', '<?php echo $color; ?>');
-					<?php } ?>
-					
-					<?php if( $bgcolor != '' ){ ?>
-					$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('backgroundColor', '<?php echo $bgcolor; ?>');
-					<?php } ?>
 <script type="text/javascript"> 
 <!--//
 (function( $ ) {
 
+$(document).ready(function($) {
+	var event_month = <?php echo $month; ?> - 1;
+	desc = '<?php echo $event_display; ?>';
+	eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0);
+	$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({
+		<?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate, 
+		description: desc,  
+		format: '<?php echo $format; ?>'<?php if($timezone != 'SCW_NONE'){ ?>,
+		timezone: <?php echo $timezone; } ?>
+	});
+	
+	<?php if( $color != '' ){ ?>
+	$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('color', '<?php echo $color; ?>');
+	<?php } ?>
+	
+	<?php if( $bgcolor != '' ){ ?>
+	$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('backgroundColor', '<?php echo $bgcolor; ?>');
+	<?php } ?>
+
+	$('.datepicker').datepicker({
+		dateFormat : 'dd-mm-yy'
+	});
+});
 
 })(jQuery);
 //-->
@@ -245,6 +265,13 @@ class shailan_CountdownWidget extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id('date'); ?>"><?php _e('Date :', 'countdown-widget'); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#date" target="_blank" rel="external">(?)</a></small> <input type="text" class="widefat datepicker" name="<?php echo $this->get_field_name('date'); ?>" id="<?php echo $this->get_field_id('date'); ?>" value="<?php echo $date; ?>"/><br /> 
 		<small>DD-MM-YYYY</small> </p>
 		
+		<script type="text/javascript">
+			if( jQuery.datepicker ){
+				jQuery('.datepicker').datepicker({
+					dateFormat : 'dd-mm-yy'
+				});
+			}
+		</script>
 		
 		<p><label for="<?php echo $this->get_field_id('hour'); ?>"><?php _e('Time :', 'countdown-widget'); ?></label><input id="<?php echo $this->get_field_id('hour'); ?>" name="<?php echo $this->get_field_name('hour'); ?>" type="number" min="0" max="23" value="<?php echo $hour; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('minutes'); ?>" name="<?php echo $this->get_field_name('minutes'); ?>" type="number" min="0" max="59" value="<?php echo $minutes; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('seconds'); ?>" name="<?php echo $this->get_field_name('seconds'); ?>" type="number" min="0" max="59" value="<?php echo $seconds; ?>" size="4" maxlength="4" /><br /> 
 		<small>HH:MM:SS</small> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#time" target="_blank" rel="external">(?)</a></small></p>
