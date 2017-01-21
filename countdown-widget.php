@@ -230,8 +230,9 @@ class shailan_CountdownWidget extends WP_Widget {
 			</select> <a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#direction">(?)</a>
 		</p>
 		
-		<p><label for="<?php echo $this->get_field_id('month'); ?>"><?php _e('Date:', 'countdown-widget'); ?></label><input id="<?php echo $this->get_field_id('month'); ?>" name="<?php echo $this->get_field_name('month'); ?>" type="text" value="<?php echo $month; ?>" size="2" maxlength="2" />/<input id="<?php echo $this->get_field_id('day'); ?>" name="<?php echo $this->get_field_name('day'); ?>" type="text" value="<?php echo $day; ?>" size="2" maxlength="2" />/<input id="<?php echo $this->get_field_id('year'); ?>" name="<?php echo $this->get_field_name('year'); ?>" type="text" value="<?php echo $year; ?>" size="4" maxlength="4" /><br /> 
-		<small>MM DD YYYY</small> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#date" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('date'); ?>"><?php _e('Date :', 'countdown-widget'); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#date" target="_blank" rel="external">(?)</a></small> <input type="text" class="widefat datepicker" name="<?php echo $this->get_field_name('date'); ?>" id="<?php echo $this->get_field_id('date'); ?>" value="<?php echo $date; ?>"/><br /> 
+		<small>DD-MM-YYYY</small> </p>
+		
 		
 		<p><label for="<?php echo $this->get_field_id('hour'); ?>"><?php _e('Time :', 'countdown-widget'); ?></label><input id="<?php echo $this->get_field_id('hour'); ?>" name="<?php echo $this->get_field_name('hour'); ?>" type="number" min="0" max="23" value="<?php echo $hour; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('minutes'); ?>" name="<?php echo $this->get_field_name('minutes'); ?>" type="number" min="0" max="59" value="<?php echo $minutes; ?>" size="2" maxlength="2" />:<input id="<?php echo $this->get_field_id('seconds'); ?>" name="<?php echo $this->get_field_name('seconds'); ?>" type="number" min="0" max="59" value="<?php echo $seconds; ?>" size="4" maxlength="4" /><br /> 
 		<small>HH:MM:SS</small> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#time" target="_blank" rel="external">(?)</a></small></p>
