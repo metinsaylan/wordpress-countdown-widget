@@ -106,14 +106,6 @@ class shailan_CountdownWidget extends WP_Widget {
 			
 			$style=" style=\"";
 		
-			// Fix HEX color codes
-			if( (preg_match('/^#[a-f0-9]{6}$/i', $color) != 1 && preg_match('/^[a-f0-9]{6}$/i', $color) ) || (preg_match('/^#[a-f0-9]{3}$/i', $color) != 1 && preg_match('/^[a-f0-9]{3}$/i', $color) ) ){
-				$color = "#" . $color;
-			} 
-			if( (preg_match('/^#[a-f0-9]{6}$/i', $bgcolor) != 1 && preg_match('/^[a-f0-9]{6}$/i', $bgcolor) ) || (preg_match('/^#[a-f0-9]{3}$/i', $bgcolor) != 1 && preg_match('/^[a-f0-9]{3}$/i', $bgcolor)) ){
-				$bgcolor = "#" . $bgcolor;
-			}
-		
 			if(!empty($bgcolor)){ 
 				$style .= "background-color:".$bgcolor.";"; 
 			} 
@@ -163,6 +155,19 @@ class shailan_CountdownWidget extends WP_Widget {
 		if( $new_instance['month'] > 12 ) { $new_instance['month'] = '12'; }
 		if( $new_instance['day'] < 1 ) { $new_instance['day'] = '1'; }
 		if( $new_instance['timezone'] == '' ){ $new_instance['timezone'] = 'SCW_NONE'; }
+		
+		$color = $new_instance['color'];
+		if( (preg_match('/^#[a-f0-9]{6}$/i', $color) != 1 && preg_match('/^[a-f0-9]{6}$/i', $color) ) || (preg_match('/^#[a-f0-9]{3}$/i', $color) != 1 && preg_match('/^[a-f0-9]{3}$/i', $color) ) ){
+			$color = "#" . $color;
+		}
+		$new_instance['color'] = $color;
+		
+		$bgcolor = $new_instance['bgcolor'];
+		if( (preg_match('/^#[a-f0-9]{6}$/i', $bgcolor) != 1 && preg_match('/^[a-f0-9]{6}$/i', $bgcolor) ) || (preg_match('/^#[a-f0-9]{3}$/i', $bgcolor) != 1 && preg_match('/^[a-f0-9]{3}$/i', $bgcolor)) ){
+			$bgcolor = "#" . $bgcolor;
+		}
+		$new_instance['bgcolor'] = $bgcolor;
+		
 		
         return $new_instance;
     }
