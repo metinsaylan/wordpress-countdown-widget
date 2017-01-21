@@ -17,8 +17,8 @@ global $countdown_shortcode_ids;
 class shailan_CountdownWidget extends WP_Widget {
     /** constructor */
     function __construct() {
-		$widget_ops = array('classname' => 'shailan_CountdownWidget', 'description' => __( 'jQuery Countdown/up widget' , 'countdown-widget') );
-		parent::__construct('shailan-countdown-widget', __('CountDown/Up Timer', 'countdown-widget'), $widget_ops);
+		$widget_ops = array( 'classname' => 'shailan_CountdownWidget', 'description' => __( 'jQuery Countdown/up widget' , 'countdown-widget') );
+		parent::__construct( 'shailan-countdown-widget', __('CountDown/Up Timer', 'countdown-widget'), $widget_ops );
 		$this->alt_option_name = 'widget_shailan_countdown';	
 		
 		// localization
@@ -46,12 +46,13 @@ class shailan_CountdownWidget extends WP_Widget {
 		$this->defaults = array(
 			'title'		=>'',
 			'event'		=> '',
+			
 			'month'		=> date( 'm' ),
 			'day'		=> date( 'd' ),
+			'year'		=> date( 'Y' ),
 			'hour'		=> ( gmdate( 'H' ) + $current_offset + 1 ),
 			'minutes'	=> date( 'i' ),
 			'seconds'	=> date( 's' ),
-			'year'		=> date( 'Y' ),
 			'format'	=> 'yowdHMS',
 			'color'		=> '000000',
 			'bgcolor'	=> '',
@@ -100,7 +101,6 @@ class shailan_CountdownWidget extends WP_Widget {
 	
     }
 	
-    /** @see WP_Widget::widget */
     function widget($args, $instance) {		
 		global $post, $countdown_shortcode_ids;
 	
@@ -112,15 +112,15 @@ class shailan_CountdownWidget extends WP_Widget {
 		// Get a new id
 		$countdown_shortcode_ids++;
 		
-		if(!empty($instance['link'])){ $link = (bool) $link; }
-		// $height = 80*$width/250;
+		if( !empty( $instance['link'] ) ){ $link = (bool) $link; }
 		
 		$path = get_plugin_path(__FILE__);
 		
 		$style = "";
 		
 		// If this is not a widget
-		if(isset($isWidget) && false === $isWidget){
+		if( isset( $isWidget ) && false === $isWidget ){
+			
 			$style=" style=\"";
 		
 			// Fix HEX color codes
@@ -137,7 +137,6 @@ class shailan_CountdownWidget extends WP_Widget {
 			if(!empty($color)){ $style .=  " color:".$color. ";"; }
 			if(!empty($width) && $width>0){ $style .= " width:".$width."px;"; }
 			if(!empty($radius) && $radius>0){ $style .= " border-radius:".$radius."px;"; }
-			// if(!empty($height) && $height>0){ $style .= " height:".$height."px;"; } // Gotta work on this
 				$style .= " margin:0px auto; \"";
 
 		}
@@ -151,13 +150,13 @@ class shailan_CountdownWidget extends WP_Widget {
 				<div id="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>" class="shailan-countdown-<?php echo $this->number ?> countdown" <?php echo $style; ?>></div>
 				
 				<?php				
-				if(!$link){echo '<div '.$style.'><small><a href="http://metinsaylan.com/wordpress/plugins/countdown/" title="Get Countdown/up Timer Widget for WordPress" style="float:right;">&uarr; Get this</a></small></div>';};
+				if( !$link ){echo '<div '.$style.'><small><a href="http://metinsaylan.com/wordpress/plugins/countdown/" title="Get Countdown/up Timer Widget for WordPress" style="float:right;">&uarr; Get this</a></small></div>';};
 				?>
 				
 <script type="text/javascript"> 
 <!--//
-// Dom Ready
-	jQuery(document).ready(function($) {
+(function( $ ) {
+	$(document).ready(function($) {
 		var event_month = <?php echo $month; ?> - 1;
 		desc = '<?php $event = htmlspecialchars( $event, ENT_QUOTES); echo $event; ?>';
 		eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0);
@@ -168,6 +167,7 @@ class shailan_CountdownWidget extends WP_Widget {
 			timezone: <?php echo $timezone; } ?>
 		}); 
 	});
+})(jQuery);
 //-->
 </script>				
 				  <?php echo $after_widget; ?>
@@ -176,7 +176,6 @@ class shailan_CountdownWidget extends WP_Widget {
     }
 
     function update($new_instance, $old_instance) {				
-		// Check month
 		if( $new_instance['month'] < 1 ) { $new_instance['month'] = '1'; }
 		if( $new_instance['month'] > 12 ) { $new_instance['month'] = '12'; }
 		if( $new_instance['day'] < 1 ) { $new_instance['day'] = '1'; }
@@ -191,14 +190,12 @@ class shailan_CountdownWidget extends WP_Widget {
 		extract( $widget_options, EXTR_SKIP );
 		
 		$event = esc_attr($event);
+		if( !empty($instance['link']) ){ $link = (bool) $link; }
 		
-		if(!empty($instance['link'])){ $link = (bool) $link; }
-		$height = 80*$width/250;
 		
 		$countdown_shortcode_ids++;
 	
         ?>
-		<p><small>Preview:</small></p>
 		<div id="countdown-preview">
 			<div id="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>" class="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?> countdown"></div>
 			<script type="text/javascript"> 
@@ -260,13 +257,13 @@ class shailan_CountdownWidget extends WP_Widget {
 			?>
 			</select></label> <a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#timezone">(?)</a></p>
 		
-		<p><label for="<?php echo $this->get_field_id('color'); ?>"><?php _e('Color:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('color'); ?>" name="<?php echo $this->get_field_name('color'); ?>" class="widefat" type="text" value="<?php echo $color; ?>" size="6" /></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#color" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('color'); ?>"><?php _e('Text Color :', 'countdown-widget'); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#color" target="_blank" rel="external">(?)</a></small> <input id="<?php echo $this->get_field_id('color'); ?>" name="<?php echo $this->get_field_name('color'); ?>" class="widefat" type="text"  placeholder="#000000" value="<?php echo $color; ?>" size="6" /></p>
 		
-		<p><label for="<?php echo $this->get_field_id('bgcolor'); ?>"><?php _e('Background color:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('bgcolor'); ?>" name="<?php echo $this->get_field_name('bgcolor'); ?>" class="widefat" type="text" value="<?php echo $bgcolor; ?>" size="6" /></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#background-color" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('bgcolor'); ?>"><?php _e('Background Color :', 'countdown-widget'); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#background-color" target="_blank" rel="external">(?)</a></small> <input id="<?php echo $this->get_field_id('bgcolor'); ?>" name="<?php echo $this->get_field_name('bgcolor'); ?>" class="widefat" placeholder="#DDDDDD" type="text" value="<?php echo $bgcolor; ?>" size="6" /> </p>
 		
-		<p><label for="<?php echo $this->get_field_id('width'); ?>"><?php _e('Width:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo $width; ?>" size="4" maxlength="4" />px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#width" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('width'); ?>"><?php _e('Width :', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo $width; ?>" size="4" maxlength="4" /> px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#width" target="_blank" rel="external">(?)</a></small></p>
 		
-		<p><label for="<?php echo $this->get_field_id('radius'); ?>"><?php _e('Border Radius:', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('radius'); ?>" name="<?php echo $this->get_field_name('radius'); ?>" type="text" value="<?php echo $radius; ?>" size="4" maxlength="4" />px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#border-radius" target="_blank" rel="external">(?)</a></small></p>
+		<p><label for="<?php echo $this->get_field_id('radius'); ?>"><?php _e('Border Radius :', 'countdown-widget'); ?> <input id="<?php echo $this->get_field_id('radius'); ?>" name="<?php echo $this->get_field_name('radius'); ?>" type="text" value="<?php echo $radius; ?>" size="4" maxlength="4" /> px</label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#border-radius" target="_blank" rel="external">(?)</a></small></p>
 		
 		<p><input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>"<?php checked( $link ); ?> />
 		<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e( 'Remove link' , 'countdown-widget'); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#remove-link" target="_blank" rel="external">(?)</a></small></p>
@@ -350,7 +347,7 @@ function shailan_CountdownWidget_shortcode( $atts, $content = null ){
 		), $atts );
 		
 	if( $args['date'] ){
-		if (($timestamp = strtotime( $args['date'] )) !== false) {
+		if ( ( $timestamp = strtotime( $args['date'] ) ) !== false) {
 			$args['month'] = date("n", $timestamp );
 			$args['day'] = date("j", $timestamp );
 			$args['year'] = date("Y", $timestamp );
@@ -369,7 +366,7 @@ function shailan_CountdownWidget_shortcode( $atts, $content = null ){
 // register widget
 add_action('widgets_init', create_function('', 'return register_widget("shailan_CountdownWidget");'));
 
-if(!function_exists('get_plugin_path')){
+if( !function_exists('get_plugin_path') ){
 	function get_plugin_path($filepath){
 		$plugin_path = preg_replace('/^.*wp-content[\\\\\/]plugins[\\\\\/]/', '', $filepath);
 		$plugin_path = str_replace('\\','/',$plugin_path );
