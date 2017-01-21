@@ -11,7 +11,7 @@ Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Inclu
 
 == Description ==
 
-Add jQuery count-down/count-up timers to your blog sidebar easily. Supports color customizations & multiple instances. Just drag'n drop. No coding required! Brought to you by [metinsaylan](http://metinsaylan.com/).
+Add jQuery count-down/count-up timers to your blog sidebar easily. Supports color customizations & multiple instances. Just drag'n drop. No coding required!
 
 *Documentation & Simple Tutorials to get you started:*
 
