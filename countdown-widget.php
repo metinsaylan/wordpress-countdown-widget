@@ -150,11 +150,18 @@ class shailan_CountdownWidget extends WP_Widget {
 		
     }
 
-    function update($new_instance, $old_instance) {				
-		if( $new_instance['month'] < 1 ) { $new_instance['month'] = '1'; }
-		if( $new_instance['month'] > 12 ) { $new_instance['month'] = '12'; }
-		if( $new_instance['day'] < 1 ) { $new_instance['day'] = '1'; }
-		if( $new_instance['timezone'] == '' ){ $new_instance['timezone'] = 'SCW_NONE'; }
+    function update( $new_instance, $old_instance ) {		
+	
+		$date = DateTime::createFromFormat( "d-m-Y", $new_instance['date'] );
+		$new_instance['day'] = $date->format("d");
+		$new_instance['month'] = $date->format("m");
+		$new_instance['year'] = $date->format("Y");
+		
+		if( $new_instance['hour'] > 24 ) $new_instance['hour'] = '00'; 
+		if( $new_instance['minutes'] > 59 ) $new_instance['minutes'] = '59';
+		if( $new_instance['seconds'] > 59 ) $new_instance['seconds'] = '59';
+		
+		if( $new_instance['timezone'] == '' ) $new_instance['timezone'] = 'SCW_NONE'; 
 		
 		$color = $new_instance['color'];
 		if( (preg_match('/^#[a-f0-9]{6}$/i', $color) != 1 && preg_match('/^[a-f0-9]{6}$/i', $color) ) || (preg_match('/^#[a-f0-9]{3}$/i', $color) != 1 && preg_match('/^[a-f0-9]{3}$/i', $color) ) ){
