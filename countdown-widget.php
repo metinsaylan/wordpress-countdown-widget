@@ -251,7 +251,7 @@ class shailan_CountdownWidget extends WP_Widget {
 		<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e( 'Remove link' , 'countdown-widget'); ?></label> <small><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/#remove-link" target="_blank" rel="external">(?)</a></small></p>
 		
 		<div class="widget-control-actions">
-			<p><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/" >Help</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2UF8Y5ZSHAGZL" >Donate</a></p>
+			<p><a href="http://metinsaylan.com/wordpress/plugins/countdown/help/" >Help</a> | <a href="http://metinsaylan.com/donate" >Donate</a></p>
 		</div>
 			
 <div class="clear"></div>
