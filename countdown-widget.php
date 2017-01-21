@@ -175,6 +175,8 @@ class shailan_CountdownWidget extends WP_Widget {
 		}
 		$new_instance['bgcolor'] = $bgcolor;
 		
+		$new_instance['format'] = preg_replace( "/[^yowdhmsYOWDHMS]+/", "", $new_instance['format'] );
+		if( strlen( $new_instance[ 'format' ] ) <= 0 ){ $new_instance['format'] = 'wdHMS'; }		
 		
         return $new_instance;
     }
