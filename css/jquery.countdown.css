@@ -55,11 +55,5 @@
 }
 
 #countdown-preview{
-	padding:3px;
-	border:1px solid #999;
-	background:#fff;
-	margin-bottom:10px;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+	padding:10px;
 }
