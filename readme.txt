@@ -1,10 +1,10 @@
 ﻿=== Wordpress Countdown Widget ===
 Contributors: mattsay
-Donate link: http://metinsaylan.com/donate
+Donate link: http://metinsaylan.com/donate/
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
-Requires at least: 4.0
+Requires at least: 4.7
 Tested up to: 4.7.1
-Stable tag: 2.6
+Stable tag: 2.6.1
 License: GPLv2 or later
 
 Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!
@@ -13,7 +13,7 @@ Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Inclu
 
 Add jQuery count-down/count-up timers to your blog sidebar easily. Supports color customizations & multiple instances. Just drag'n drop. No coding required!
 
-*Documentation & Simple Tutorials to get you started:*
+*Documentation & Simple Tutorials to Get You Started:*
 
 * [Countdown Widget Help](http://metinsaylan.com/wordpress/plugins/countdown/help/)
 * [Countdown Shortcode Usage](http://metinsaylan.com/4579/how-to-add-a-countdown-to-your-post-using-shortcode/)
@@ -21,9 +21,10 @@ Add jQuery count-down/count-up timers to your blog sidebar easily. Supports colo
 * [Creating a Halloween Countdown on your sidebar](http://metinsaylan.com/4621/get-halloween-countdown-ready/)
 * [Search metinsaylan.com for countdown](http://metinsaylan.com/?s=countdown)
 
-Visit source on [github](https://github.com/shailancom/wordpress-countdown-widget)
+If you like this plugin, please [donate](http://metinsaylan.com/donate).
 
-If you like this plugin, please [show me some love](http://metinsaylan.com/donate).
+Please report issues on [Github Issues Page](https://github.com/shailancom/wordpress-countdown-widget/issues).
+Visit source on [github](https://github.com/shailancom/wordpress-countdown-widget)
 
 == Installation ==
 
@@ -33,8 +34,6 @@ If you like this plugin, please [show me some love](http://metinsaylan.com/donat
 1. Fill in the blanks as needed, and done!
 
 == Frequently Asked Questions ==
-
-= Any questions? =
 
 You can ask your questions [here](https://github.com/shailancom/wordpress-countdown-widget/issues)
 
@@ -47,6 +46,16 @@ You can ask your questions [here](https://github.com/shailancom/wordpress-countd
 Please back up your precious data before upgrading plugins.
 
 == Changelog ==
+
+= 2.6.1 = 
+* Fixed admin header error on ajax functions.
+* Added Croatian translation. Kudos for Renato Barisic.
+
+= 2.6 = 
+* Added datetime picker.
+* Added format string validation.
+* Fixed event title link problem.
+* Optimized validation checks.
 
 = 2.5.9 =
 * Tested upto WP 4.4.2
