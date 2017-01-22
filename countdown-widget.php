@@ -312,11 +312,16 @@ $(document).ready(function($) {
 	
 	function admin_header( $instance ){
 		
+		if( !wp_doing_ajax() ){
+		
 		$all_widgets = $this->get_settings();
 		
 		foreach ($all_widgets as $key => $widget){
+			
 			$widget_id = $this->id_base . '-' . $key;		
-			if(is_active_widget(false, $widget_id, $this->id_base)){
+			
+			if( is_active_widget( false, $widget_id, $this->id_base ) ){
+				
 				$countdown = $all_widgets[$key];
 				
 				if( preg_match('/^#[a-f0-9]{6}$/i', $countdown['color']) == 0 && preg_match('/^[a-f0-9]{6}$/i', $countdown['color']) ){
@@ -362,8 +367,10 @@ $(document).ready(function($) {
 			} 
 		}
 		
-		wp_enqueue_style('jquery-ui-css', plugins_url('css/jquery-ui.min.css', __FILE__));
+		wp_enqueue_style('jquery-ui-custom-css', plugins_url('css/jquery-ui.min.css', __FILE__));
 		wp_enqueue_style('countdown-style', plugins_url('css/jquery.countdown.css', __FILE__), '', '1.1', false);
+		
+		}
 	
 	}
 	
