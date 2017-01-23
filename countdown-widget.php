@@ -22,8 +22,10 @@ class shailan_CountdownWidget extends WP_Widget {
 		parent::__construct( 'shailan-countdown-widget', __('CountDown/Up Timer', 'countdown-widget'), $widget_ops );
 		$this->alt_option_name = 'widget_shailan_countdown';	
 		
+		add_action( 'admin_init', array(&$this, 'common_header'), 10, 1 );	
 		add_action( 'admin_init', array(&$this, 'admin_header'), 10, 1 );	
-		add_action( 'wp_enqueue_scripts', array(&$this, 'front_header'), 10, 1 );	
+		add_action( 'wp_enqueue_scripts', array(&$this, 'common_header'), 10, 1 );	
+		add_action( 'wp_print_styles', array(&$this, 'print_styles'), 10, 1 );	
 		
 		$current_offset = get_option('gmt_offset');
 		
@@ -310,74 +312,45 @@ $(document).ready(function($) {
 		
 	}
 	
-	function admin_header( $instance ){
+	function common_header( $instance ){
 		
 		if( !wp_doing_ajax() ){
-		
-		$all_widgets = $this->get_settings();
-		
-		foreach ($all_widgets as $key => $widget){
 			
-			$widget_id = $this->id_base . '-' . $key;		
+			wp_enqueue_script('jquery');
+			wp_enqueue_script('jquery-ui-datepicker');
+			wp_enqueue_script('countdown', plugins_url('js/jquery.countdown.min.js', __FILE__), 'jquery', '1.0', true);
 			
-			if( is_active_widget( false, $widget_id, $this->id_base ) ){
-				
-				$countdown = $all_widgets[$key];
-				
-				if( preg_match('/^#[a-f0-9]{6}$/i', $countdown['color']) == 0 && preg_match('/^[a-f0-9]{6}$/i', $countdown['color']) ){
-					$color = "#" . $countdown['color'];
-				} 
-				
-				if( preg_match('/^#[a-f0-9]{6}$/i', $countdown['bgcolor']) == 0 && preg_match('/^[a-f0-9]{6}$/i', $countdown['bgcolor']) ){
-					$bgcolor = "#" . $countdown['bgcolor'];
-				} 
-			
-				echo "\n<style type=\"text/css\" media=\"screen\">";
-				echo "\n\t #shailan-countdown-".$key.", .shailan-countdown-".$key.".hasCountdown{ ";
-				// Background color
-				if(!empty($countdown['bgcolor'])){ 
-					echo "\n\tbackground-color: ".$countdown['bgcolor'].";"; 
-				} else {
-					echo "\n\tbackground-color: transparent;";
-				};
-				// Color
-				if(!empty($countdown['color'])){ echo "\n\tcolor: ".$countdown['color'].";"; };
-				// Width
-				if(!empty($countdown['width']) && $countdown['width']>0){ echo "\n\twidth:".$countdown['width']."px;"; };
-				if(!empty($countdown['radius']) && $countdown['radius']>0){ echo "\n\tborder-radius:".$countdown['radius']."px;"; };
-				echo "\n\tmargin:0px auto;";
-				echo "}";
-				echo "\n</style>\n";
-			}
-		}
-		
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('jquery-ui-datepicker');
-		wp_enqueue_script('countdown', plugins_url('js/jquery.countdown.min.js', __FILE__), 'jquery', '1.0', true);
-		
-		// localization
-		$lang = get_bloginfo('language');						// Long (full) language code
-		$short_lang = substr( get_bloginfo('language'), 0, 2 );	// Short language code (just two first letters)
+			// localization
+			$lang = get_bloginfo('language');						// Long (full) language code
+			$short_lang = substr( get_bloginfo('language'), 0, 2 );	// Short language code (just two first letters)
 
-		if( $lang!='en' ){
-			if( file_exists( plugin_dir_path(__FILE__) . 'js/jquery.countdown-' . $lang . '.js' ) ){
-				wp_enqueue_script('countdown-l10n', plugins_url('js/jquery.countdown-' . $lang . '.js',__FILE__), 'countdown', '1.0', true);
-			} elseif( file_exists( plugin_dir_path(__FILE__) . 'js/jquery.countdown-' . $short_lang . '.js' ) ){
-				wp_enqueue_script('countdown-l10n', plugins_url('js/jquery.countdown-' . $short_lang . '.js',__FILE__), 'countdown', '1.0', true);
-			} 
+			if( $lang!='en' ){
+				if( file_exists( plugin_dir_path(__FILE__) . 'js/jquery.countdown-' . $lang . '.js' ) ){
+					wp_enqueue_script('countdown-l10n', plugins_url('js/jquery.countdown-' . $lang . '.js',__FILE__), 'countdown', '1.0', true);
+				} elseif( file_exists( plugin_dir_path(__FILE__) . 'js/jquery.countdown-' . $short_lang . '.js' ) ){
+					wp_enqueue_script('countdown-l10n', plugins_url('js/jquery.countdown-' . $short_lang . '.js',__FILE__), 'countdown', '1.0', true);
+				} 
+			}
+			
+			wp_enqueue_style('jquery-ui-custom-css', plugins_url('css/jquery-ui.min.css', __FILE__));
+			wp_enqueue_style('countdown-style', plugins_url('css/jquery.countdown.css', __FILE__), '', '1.1', false);
+			
 		}
 		
-		wp_enqueue_style('jquery-ui-custom-css', plugins_url('css/jquery-ui.min.css', __FILE__));
-		wp_enqueue_style('countdown-style', plugins_url('css/jquery.countdown.css', __FILE__), '', '1.1', false);
-		
-		}
-	
 	}
 	
-	function front_header( $instance ){
+	function admin_header( $instance ){
+		if( !wp_doing_ajax() ){
 		
+			wp_enqueue_script('jquery');
+			wp_enqueue_script('jquery-ui-datepicker');
+			wp_enqueue_style('jquery-ui-custom-css', plugins_url('css/jquery-ui.min.css', __FILE__));
+		
+		}
+	}
+	
+	function print_styles( $instance ){
 		$all_widgets = $this->get_settings();
-		
 		foreach ($all_widgets as $key => $widget){
 			$widget_id = $this->id_base . '-' . $key;		
 			if(is_active_widget(false, $widget_id, $this->id_base)){
@@ -412,24 +385,6 @@ $(document).ready(function($) {
 				echo "\n</style>\n";
 			}
 		}
-		
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('countdown', plugins_url('js/jquery.countdown.min.js', __FILE__), 'jquery', '1.0', true);
-		
-		// localization
-		$lang = get_bloginfo('language');						// Long (full) language code
-		$short_lang = substr( get_bloginfo('language'), 0, 2 );	// Short language code (just two first letters)
-
-		if( $lang!='en' ){
-			if( file_exists( plugin_dir_path(__FILE__) . 'js/jquery.countdown-' . $lang . '.js' ) ){
-				wp_enqueue_script('countdown-l10n', plugins_url('js/jquery.countdown-' . $lang . '.js',__FILE__), 'countdown', '1.0', true);
-			} elseif( file_exists( plugin_dir_path(__FILE__) . 'js/jquery.countdown-' . $short_lang . '.js' ) ){
-				wp_enqueue_script('countdown-l10n', plugins_url('js/jquery.countdown-' . $short_lang . '.js',__FILE__), 'countdown', '1.0', true);
-			} 
-		}
-		
-		wp_enqueue_style('countdown-style', plugins_url('css/jquery.countdown.css', __FILE__), '', '1.1', false);
-	
 	}
 	
 	function footer($instance){
