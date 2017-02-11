@@ -3,8 +3,8 @@ Contributors: mattsay
 Donate link: http://metinsaylan.com/donate/
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
 Requires at least: 4.7
-Tested up to: 4.7.1
-Stable tag: 2.6.2
+Tested up to: 4.7.2
+Stable tag: 2.6.3
 License: GPLv2 or later
 
 Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!
@@ -46,6 +46,9 @@ You can ask your questions [here](https://github.com/shailancom/wordpress-countd
 Please back up your precious data before upgrading plugins.
 
 == Changelog ==
+
+= 2.6.3 = 
+* Fixed wp_doing_ajax problem for WP versions prior 4.7
 
 = 2.6.2 =
 * Fixed admin print styles error.
