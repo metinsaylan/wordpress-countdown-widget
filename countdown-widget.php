@@ -108,7 +108,7 @@ class shailan_CountdownWidget extends WP_Widget {
 		
 		$style = "";
 		
-		if ( ( $timestamp = strtotime( $args['date'] ) ) !== false ) {
+		if ( ( $timestamp = strtotime( $date ) ) !== false ) {
 			$month 	= date("n", $timestamp );
 			$day 	= date("j", $timestamp );
 			$year 	= date("Y", $timestamp );
