@@ -331,7 +331,7 @@ $(document).ready(function($) {
 				}
 			}
 
-			wp_enqueue_style('countdown-style', plugins_url('css/jquery.countdown.css', __FILE__), '', '1.1', false);
+			wp_enqueue_style('countdown-style', plugins_url('css/jquery.countdown.min.css', __FILE__), '', '1.1', false);
 
 		}
 
