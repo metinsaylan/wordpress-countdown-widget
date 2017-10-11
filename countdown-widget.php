@@ -3,7 +3,7 @@
 * Plugin Name: Countdown Widget
 * Plugin URI: http://metinsaylan.com/projects/wordpress/countdown-widget/
 * Description: A Beautiful jQuery Countdown Widget. Allows Multiple instances, Shortcode usage, and Customizations. Powered by: <a href="http://metinsaylan.com">metinsaylan</a>.
-* Version: 2.6.3
+* Version: 2.6.4
 * Author: Metin Saylan
 * Author URI: http://metinsaylan.com/
 * Text Domain: countdown-widget
