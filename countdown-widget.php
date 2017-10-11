@@ -141,7 +141,7 @@ class shailan_CountdownWidget extends WP_Widget {
 				<div id="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>" class="shailan-countdown-<?php echo $this->number ?> countdown" <?php echo $style; ?>></div>
 
 				<?php
-				if( !$link ){echo '<div '.$style.'><small><a href="http://metinsaylan.com/projects/wordpress/countdown-widget/" title="Get Countdown/up Timer Widget for WordPress" style="float:right;">?</a></small></div>';};
+				if( !$link ){echo '<div '.$style.'><small><a href="http://metinsaylan.com/projects/wordpress/countdown-widget/" title="Get Countdown Widget for WordPress" class="countdown_infolink">i</a></small></div>';};
 				?>
 
 <script type="text/javascript">
