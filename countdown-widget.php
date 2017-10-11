@@ -1,13 +1,4 @@
 <?php
-/*
-* Plugin Name: Countdown Widget
-* Plugin URI: http://metinsaylan.com/projects/wordpress/countdown-widget/
-* Description: A Beautiful jQuery Countdown Widget. Allows Multiple instances, Shortcode usage, and Customizations. Powered by: <a href="http://metinsaylan.com">metinsaylan</a>.
-* Version: 2.6.3
-* Author: Metin Saylan
-* Author URI: http://metinsaylan.com/
-* Text Domain: countdown-widget
-*/
 
 global $countdown_shortcode_ids;
 
@@ -390,74 +381,5 @@ $(document).ready(function($) {
 
 } // class shailan_CountdownWidget
 
-function shailan_CountdownWidget_shortcode( $atts, $content = null ){
-	global $post, $subpages_indexes;
-
-	$args = shortcode_atts( array(
-			'title'=>'',
-			'event'=>'',
-			'date'=>false,
-			'month'=>'',
-			'day'=>'',
-			'hour'=>'0',
-			'minutes'=>'0',
-			'seconds'=>'0',
-			'year'=>'',
-			'format'=>'yowdHMS',
-			'color'=>'',
-			'bgcolor'=>'',
-			'width'=>'',
-			'height' => '',
-			'radius' => '',
-			'border' => '',
-			'link'=>false,
-			'timezone' => 'SCW_NONE',
-			'direction' => 'down',
-			'isWidget' => false
-		), $atts );
-
-	if( $args['date'] ){
-		if ( ( $timestamp = strtotime( $args['date'] ) ) !== false) {
-			$args['month'] = date("n", $timestamp );
-			$args['day'] = date("j", $timestamp );
-			$args['year'] = date("Y", $timestamp );
-		}
-	}
-
-	ob_start();
-	the_widget( 'shailan_CountdownWidget', $args );
-	$cd_code = ob_get_contents();
-	ob_end_clean();
-
-	return $cd_code;
-
-} add_shortcode( 'countdown', 'shailan_CountdownWidget_shortcode');
-
-function shailan_CountdownWidget_shortcode_up( $atts, $content = null ){
-
-	$atts['direction'] = 'up';
-	return shailan_CountdownWidget_shortcode( $atts, $content );
-
-} add_shortcode( 'countup', 'shailan_CountdownWidget_shortcode_up');
-
 // register widget
 add_action('widgets_init', create_function('', 'return register_widget("shailan_CountdownWidget");'));
-
-if( !function_exists('get_plugin_path') ){
-	function get_plugin_path($filepath){
-		$plugin_path = preg_replace('/^.*wp-content[\\\\\/]plugins[\\\\\/]/', '', $filepath);
-		$plugin_path = str_replace('\\','/',$plugin_path );
-		$plugin_dir  = substr($plugin_path ,0,strrpos($plugin_path ,'/'));
-		$plugin_realpath = str_replace('\\','/',dirname($filepath));
-		$plugin_siteurl  = get_bloginfo('wpurl');
-		$plugin_siteurl  = (strpos($plugin_siteurl,'http://') === false) ? get_bloginfo('siteurl') : $plugin_siteurl;
-		return $plugin_siteurl.'/wp-content/plugins/'.$plugin_dir.'/';
-	}
-}
-
-// Added for backward compatibility
-if( ! function_exists('wp_doing_ajax') ){
-	function wp_doing_ajax() {
-		return apply_filters( 'wp_doing_ajax', defined( 'DOING_AJAX' ) && DOING_AJAX );
-	}
-}
