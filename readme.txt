@@ -26,6 +26,8 @@ If you like this plugin, please [donate](http://metinsaylan.com/donate).
 Please report issues on [Github Issues Page](https://github.com/shailancom/wordpress-countdown-widget/issues).
 Visit source on [github](https://github.com/shailancom/wordpress-countdown-widget)
 
+Are you interested in translating this plugin? [Help us translate](https://translate.wordpress.org/projects/wp-plugins/wordpress-countdown-widget).
+
 == Installation ==
 
 1. Download the widget and upload it to your server through `WP Admin -> Plugins -> Add New -> Upload`
