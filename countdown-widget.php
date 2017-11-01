@@ -107,8 +107,6 @@ class shailan_CountdownWidget extends WP_Widget {
 
 		if( !empty( $instance['link'] ) ){ $link = (bool) $link; }
 
-		$path = get_plugin_path(__FILE__);
-
 		$style = "";
 
 		if ( ( $timestamp = strtotime( $date ) ) !== false ) {
