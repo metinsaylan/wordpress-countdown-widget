@@ -51,11 +51,10 @@ Please back up your precious data before upgrading plugins.
 
 == Changelog ==
 
-= 2.6.4 =
-* Added countup shortcode.
-* Fixed help and documentation links.
-* Updated latest stable tag.
-* Fix: Removed jquery-ui css from front end.
-* Added minified css.
+= 2.6.5 = 
+* Fixed help and doc links.
+* Updated tested up to link.
+* Edited info link style.
+* Removed unused get_plugin_path call.
 
-Please visit [Countdown Widget Changelog](https://raw.githubusercontent.com/metinsaylan/wordpress-countdown-widget/master/CHANGELOG.md) on Github for previous versions.
+Please visit [Countdown Widget Changelog](https://github.com/metinsaylan/wordpress-countdown-widget/blob/master/CHANGELOG.md) on Github for previous versions.

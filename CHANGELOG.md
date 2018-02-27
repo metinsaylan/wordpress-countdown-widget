@@ -2,6 +2,13 @@
 
 You can find all previous changes to [WordPress CountDown Widget](http://metinsaylan.com/projects/wordpress/countdown-widget/) on this page.
 
+### 2.6.4
+* Added countup shortcode.
+* Fixed help and documentation links.
+* Updated latest stable tag.
+* Fix: Removed jquery-ui css from front end.
+* Added minified css.
+
 ### 2.6.3
 * Fixed wp_doing_ajax problem for WP versions prior 4.7
 
