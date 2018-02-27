@@ -15,25 +15,27 @@ Add jQuery count-down/count-up timers to your blog sidebar easily. Supports colo
 
 *Documentation & Simple Tutorials to Get You Started:*
 
-* [Countdown Widget Help](http://metinsaylan.com/docs/countdown-widget-help/)
+* [Countdown Widget Help](http://metinsaylan.com/wordpress/plugins/countdown/help/)
 * [Countdown Shortcode Usage](http://metinsaylan.com/docs/countdown-widget-shortcode/)
-* [Customizing Countdown Widget Using CSS](http://metinsaylan.com/wordpress/2010/12/21/customizing-countdown-widget-using-css/)
-* [Creating a Halloween Countdown on your sidebar](http://metinsaylan.com/wordpress/2014/10/16/get-halloween-countdown-ready/)
-* [View all posts tagged Countdown Widget](http://metinsaylan.com/tag/countdown-widget/)
+* [Customizing Countdown Widget Using CSS](http://metinsaylan.com/1825/customizing-countdown-widget-using-css/)
+* [Creating a Halloween Countdown on your sidebar](http://metinsaylan.com/4621/get-halloween-countdown-ready/)
+* [View all posts tagged Countdown Widget](http://metinsaylan.com/tag/wordpress-countdown-widget/)
 
 If you like this plugin, please [donate](http://metinsaylan.com/donate).
 
-Please report issues on [Github Issues Page](https://github.com/shailancom/wordpress-countdown-widget/issues).
-Visit source on [github](https://github.com/shailancom/wordpress-countdown-widget)
+Please report issues on [Github Issues Page](https://github.com/metinsaylan/wordpress-countdown-widget/issues).
+Visit source on [github](https://github.com/metinsaylan/wordpress-countdown-widget)
 
 Are you interested in translating this plugin? [Help us translate](https://translate.wordpress.org/projects/wp-plugins/wordpress-countdown-widget).
 
 == Installation ==
 
-1. Download the widget and upload it to your server through `WP Admin -> Plugins -> Add New -> Upload`
-1. After the upload is complete activate the plugin.
-1. Go to Appearance -> Widgets page, drag and drop the widget to your sidebar.
-1. Fill in the blanks as needed, and done!
+1. Go to `WP Admin -> Plugins -> Add New`
+1. Search for `wordpress countdown widget`
+1. Click `Install Now` button to install the plugin.
+1. Click `Activate` to activate the plugin after installation is complete.
+1. Go to `Appearance -> Widgets` to add widget to one of your sidebars.
+1. Alternatively you can use the [shortcode](http://metinsaylan.com/docs/countdown-widget-shortcode/) to add it to your posts.
 
 == Frequently Asked Questions ==
 
@@ -56,4 +58,4 @@ Please back up your precious data before upgrading plugins.
 * Fix: Removed jquery-ui css from front end.
 * Added minified css.
 
-Please visit [Countdown Widget Changelog](https://github.com/shailancom/wordpress-countdown-widget/blob/master/CHANGELOG.md) on Github for previous versions.
+Please visit [Countdown Widget Changelog](https://raw.githubusercontent.com/metinsaylan/wordpress-countdown-widget/master/CHANGELOG.md) on Github for previous versions.
