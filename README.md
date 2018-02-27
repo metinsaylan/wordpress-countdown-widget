@@ -23,7 +23,9 @@ Are you interested in translating this plugin? [Help us translate](https://trans
 
 ## Installation
 
-1. Download the widget and upload it to your server through `WP Admin -> Plugins -> Add New -> Upload`
-1. After the upload is complete activate the plugin.
-1. Go to Appearance -> Widgets page, drag and drop the widget to your sidebar.
-1. Fill in the blanks as needed, and done!
+1. Go to `WP Admin -> Plugins -> Add New`
+1. Search for `wordpress countdown widget`
+1. Click `Install Now` button to install the plugin.
+1. Click `Activate` to activate the plugin after installation is complete.
+1. Go to `Appearance -> Widgets` to add widget to one of your sidebars.
+1. Alternatively you can use the [shortcode](http://metinsaylan.com/docs/countdown-widget-shortcode/) to add it to your posts.
