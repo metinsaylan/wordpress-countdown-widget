@@ -3,8 +3,8 @@ Contributors: mattsay
 Donate link: http://metinsaylan.com/donate/
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
 Requires at least: 4.7
-Tested up to: 4.8.2
-Stable tag: 2.6.4
+Tested up to: 4.9.4
+Stable tag: 2.6.5
 License: GPLv2 or later
 
 Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!
