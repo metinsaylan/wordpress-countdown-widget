@@ -3,7 +3,7 @@
 * Plugin Name: Countdown Widget
 * Plugin URI: http://metinsaylan.com/projects/wordpress/countdown-widget/
 * Description: A Beautiful jQuery Countdown Widget. Allows Multiple instances, Shortcode usage, and Customizations. Powered by: <a href="http://metinsaylan.com">metinsaylan</a>.
-* Version: 3.0
+* Version: 3.1
 * Author: Metin Saylan
 * Author URI: http://metinsaylan.com/
 * Text Domain: countdown-widget
@@ -29,24 +29,24 @@ class shailan_CountdownWidget extends WP_Widget {
 		add_action( 'admin_init', array(&$this, 'common_header'), 100, 1 );
 		add_action( 'wp_enqueue_scripts', array(&$this, 'common_header'), 100, 1 );
 
-    add_action( 'wp_footer', array(&$this, 'print_scripts'), 1000, 1 );
+		add_action( 'wp_footer', array(&$this, 'print_scripts'), 1000, 1 );
 		add_action( 'wp_print_styles', array(&$this, 'print_styles'), 1000, 1 );
 
 		$current_offset = get_option('gmt_offset');
 
-    $this->pluginname = "Countdown Widget";
-    $this->version = "3.0";
+		$this->pluginname = "Countdown Widget";
+		$this->version = "3.1";
 		$this->help_url = "https://metinsaylan.com/wordpress/plugins/countdown/help/";
 
 		$this->settings_key = "wp_countdown_widget";
 		$this->options_page = "wp-countdown-widget";
 
-    // Include options array
+		// Include options array
 		require_once("countdown-options.php");
 		$this->options = $options;
 		$this->settings = $this->get_plugin_settings();
 
-    add_action('admin_menu', array( &$this, 'admin_header') );
+		add_action('admin_menu', array( &$this, 'admin_header') );
 
 		$this->defaults = array(
 			'title'		=>'',
