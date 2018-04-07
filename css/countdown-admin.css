@@ -1,0 +1,13 @@
+div.options-page{ max-width: 740px }
+.settings-wrap { background: #fff; padding: 10px; }
+.ms-options-input {
+    display: block;
+    border-bottom: 1px solid #eee;
+    padding: 4px;
+}
+.ms-options-input label {
+    display: inline-block;
+    width: 25%;
+}
+.ms-options-paragraph { margin-bottom: 20px; }
+.submit-wrap{ text-align: right; padding-top: 8px }
