@@ -3,8 +3,8 @@ Contributors: mattsay
 Donate link: http://metinsaylan.com/donate/
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
 Requires at least: 4.7
-Tested up to: 4.9.4
-Stable tag: 2.6.5
+Tested up to: 4.9.5
+Stable tag: 3.0
 License: GPLv2 or later
 
 Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!
@@ -17,6 +17,7 @@ Add jQuery count-down/count-up timers to your blog sidebar easily. Supports colo
 
 * [Countdown Widget Help](http://metinsaylan.com/wordpress/plugins/countdown/help/)
 * [Countdown Shortcode Usage](http://metinsaylan.com/docs/countdown-widget-shortcode/)
+* [Countdown Shortcode Samples](https://metinsaylan.com/4579/how-to-add-a-countdown-to-your-post-using-shortcode/)
 * [Customizing Countdown Widget Using CSS](http://metinsaylan.com/1825/customizing-countdown-widget-using-css/)
 * [Creating a Halloween Countdown on your sidebar](http://metinsaylan.com/4621/get-halloween-countdown-ready/)
 * [View all posts tagged Countdown Widget](http://metinsaylan.com/tag/wordpress-countdown-widget/)
@@ -51,10 +52,11 @@ Please back up your precious data before upgrading plugins.
 
 == Changelog ==
 
-= 2.6.5 = 
+= 3.0 =
+* **Note** This is a huge update to the plugin. If you have active countdown widgets, they can be effected from the update.
 * Fixed help and doc links.
-* Updated tested up to link.
-* Edited info link style.
-* Removed unused get_plugin_path call.
+* Added options page for customizing labels
+* Merged css and translation to page source
+* Deleted unused translation scripts and css files
 
 Please visit [Countdown Widget Changelog](https://github.com/metinsaylan/wordpress-countdown-widget/blob/master/CHANGELOG.md) on Github for previous versions.

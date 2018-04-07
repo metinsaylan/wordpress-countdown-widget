@@ -10,6 +10,7 @@ Add jQuery count-down/count-up timers to your blog sidebar easily. Supports colo
 
 * [Countdown Widget Help](http://metinsaylan.com/wordpress/plugins/countdown/help/)
 * [Countdown Shortcode Usage](http://metinsaylan.com/docs/countdown-widget-shortcode/)
+* [Countdown Shortcode Samples](https://metinsaylan.com/4579/how-to-add-a-countdown-to-your-post-using-shortcode/)
 * [Customizing Countdown Widget Using CSS](http://metinsaylan.com/1825/customizing-countdown-widget-using-css/)
 * [Creating a Halloween Countdown on your sidebar](http://metinsaylan.com/4621/get-halloween-countdown-ready/)
 * [View all posts tagged Countdown Widget](http://metinsaylan.com/tag/wordpress-countdown-widget/)

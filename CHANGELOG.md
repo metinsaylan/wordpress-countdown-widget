@@ -2,6 +2,12 @@
 
 You can find all previous changes to [WordPress CountDown Widget](http://metinsaylan.com/projects/wordpress/countdown-widget/) on this page.
 
+### 2.6.5
+* Fixed help and doc links.
+* Updated tested up to link.
+* Edited info link style.
+* Removed unused get_plugin_path call.
+
 ### 2.6.4
 * Added countup shortcode.
 * Fixed help and documentation links.
