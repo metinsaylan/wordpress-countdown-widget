@@ -4,14 +4,14 @@ Donate link: http://metinsaylan.com/donate/
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
 Requires at least: 4.7
 Tested up to: 4.9.5
-Stable tag: 3.0
+Stable tag: 3.1
 License: GPLv2 or later
 
-Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!
+Customizable, easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!
 
 == Description ==
 
-Add jQuery count-down/count-up timers to your blog sidebar easily. Supports color customizations & multiple instances. Just drag'n drop. No coding required!
+A WordPress countdown plugin for adding count-down/count-up timers to your blog posts and sidebars easily. Supports translations, color customizations & multiple instances. Just drag'n drop. No coding required!
 
 *Documentation & Simple Tutorials to Get You Started:*
 
