@@ -1,6 +1,13 @@
 # Countdown Widget Changelog
 
-You can find all previous changes to [WordPress CountDown Widget](http://metinsaylan.com/projects/wordpress/countdown-widget/) on this page.
+You can find all previous changes to [WordPress CountDown Widget](https://metinsaylan.com/projects/wordpress/countdown-widget/) on this page.
+
+= 3.0 =
+* **Note** This is a huge update to the plugin. If you have active countdown widgets, they can be effected from the update.
+* Fixed help and doc links.
+* Added options page for customizing labels
+* Merged css and translation to page source
+* Deleted unused translation scripts and css files
 
 ### 2.6.5
 * Fixed help and doc links.

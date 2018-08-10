@@ -1,26 +1,25 @@
 # Wordpress Countdown Widget
 
-*Customizable, Easy to use jQuery powered CountDown/Up timer for your site. Includes both Widget and Shortcode!*
+*Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.*
 
 ## Description
 
-Add jQuery count-down/count-up timers to your blog sidebar easily. Supports color customizations & multiple instances. Just drag'n drop. No coding required!
+A WordPress countdown plugin for adding countdown/countup timers to your blog posts and sidebars easily. Supports translations, color customizations & multiple instances. Just drag'n drop. No coding required!
 
 *Documentation & Simple Tutorials to Get You Started:*
 
-* [Countdown Widget Help](http://metinsaylan.com/wordpress/plugins/countdown/help/)
-* [Countdown Shortcode Usage](http://metinsaylan.com/docs/countdown-widget-shortcode/)
+* [Countdown Widget Help](https://metinsaylan.com/wordpress/plugins/countdown/help/)
+* [Countdown Shortcode Usage](https://metinsaylan.com/docs/countdown-widget-shortcode/)
 * [Countdown Shortcode Samples](https://metinsaylan.com/4579/how-to-add-a-countdown-to-your-post-using-shortcode/)
-* [Customizing Countdown Widget Using CSS](http://metinsaylan.com/1825/customizing-countdown-widget-using-css/)
-* [Creating a Halloween Countdown on your sidebar](http://metinsaylan.com/4621/get-halloween-countdown-ready/)
-* [View all posts tagged Countdown Widget](http://metinsaylan.com/tag/wordpress-countdown-widget/)
+* [Customizing Countdown Widget Using CSS](https://metinsaylan.com/1825/customizing-countdown-widget-using-css/)
+* [Creating a Halloween Countdown on your sidebar](https://metinsaylan.com/4621/get-halloween-countdown-ready/)
+* [How to use Countup Shortcode](https://metinsaylan.com/8556/how-to-add-count-up-timers-to-your-posts-using-shortcode/)
+* [View all posts tagged Countdown Widget](https://metinsaylan.com/tag/wordpress-countdown-widget/)
 
-If you like this plugin, please [donate](http://metinsaylan.com/donate).
+If you like this plugin, please [donate](https://metinsaylan.com/donate).
 
 Please report issues on [Github Issues Page](https://github.com/metinsaylan/wordpress-countdown-widget/issues).
 Visit source on [github](https://github.com/metinsaylan/wordpress-countdown-widget)
-
-Are you interested in translating this plugin? [Help us translate](https://translate.wordpress.org/projects/wp-plugins/wordpress-countdown-widget).
 
 ## Installation
 
