@@ -1,11 +1,11 @@
 <?php
 /*
 * Plugin Name: Countdown Widget
-* Plugin URI: http://metinsaylan.com/projects/wordpress/countdown-widget/
-* Description: A Beautiful jQuery Countdown Widget. Allows Multiple instances, Shortcode usage, and Customizations. Powered by: <a href="http://metinsaylan.com">metinsaylan</a>.
-* Version: 3.1
+* Plugin URI: https://metinsaylan.com/projects/wordpress/countdown-widget/
+* Description: Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.
+* Version: 3.1.1
 * Author: Metin Saylan
-* Author URI: http://metinsaylan.com/
+* Author URI: https://metinsaylan.com/
 * Text Domain: countdown-widget
 */
 
@@ -22,7 +22,7 @@ class shailan_CountdownWidget extends WP_Widget {
     /** constructor */
     function __construct() {
 
-		$widget_ops = array( 'classname' => 'shailan_CountdownWidget', 'description' => __( 'jQuery Countdown/up widget' , 'countdown-widget') );
+		$widget_ops = array( 'classname' => 'shailan_CountdownWidget', 'description' => __( 'Countdown/countup timer widget' , 'countdown-widget') );
 		parent::__construct( 'shailan-countdown-widget', __('CountDown Widget ⌛', 'countdown-widget'), $widget_ops );
 		$this->alt_option_name = 'widget_shailan_countdown';
 
@@ -31,6 +31,7 @@ class shailan_CountdownWidget extends WP_Widget {
 
 		add_action( 'wp_footer', array(&$this, 'print_scripts'), 1000, 1 );
 		add_action( 'wp_print_styles', array(&$this, 'print_styles'), 1000, 1 );
+		add_action( 'admin_print_styles', array(&$this, 'print_styles'), 1000, 1 );
 
 		$current_offset = get_option('gmt_offset');
 
@@ -161,23 +162,7 @@ class shailan_CountdownWidget extends WP_Widget {
 				if( !$link ){echo '<div '.$style.'><small><a href="https://metinsaylan.com/wordpress/plugins/countdown/" title="Get Countdown Widget for WordPress" class="countdown_infolink">i</a></small></div>';};
 				?>
 
-<script type="text/javascript">
-<!--//
-(function( $ ) {
-	$(document).ready(function($) {
-		var event_month = <?php echo $month; ?> - 1;
-		desc = '<?php $event = addslashes(force_balance_tags($event)); echo $event; ?>';
-		eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0);
-		$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({
-			<?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate,
-			description: desc,
-			format: '<?php echo $format; ?>'<?php if($timezone != 'SCW_NONE'){ ?>,
-			timezone: <?php echo $timezone; } ?>
-		});
-	});
-})(jQuery);
-//-->
-</script>
+<script>(function($){$(document).ready(function($) { var event_month = <?php echo $month; ?> - 1; desc = '<?php $event = addslashes(force_balance_tags($event)); echo $event; ?>'; eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0); $('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({ <?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate, description: desc, format: '<?php echo $format; ?>'<?php if($timezone != 'SCW_NONE'){ ?>, timezone: <?php echo $timezone; } ?> }); }); })(jQuery);</script>
 				  <?php echo $after_widget; ?>
 			<?php
 
@@ -237,37 +222,7 @@ class shailan_CountdownWidget extends WP_Widget {
         ?>
 		<div id="countdown-preview">
 			<div id="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>" class="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?> countdown"></div>
-<script type="text/javascript">
-<!--//
-(function( $ ) {
-
-$(document).ready(function($) {
-	var event_month = <?php echo $month; ?> - 1;
-	desc = '<?php echo $event_display; ?>';
-	eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0);
-	$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({
-		<?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate,
-		description: desc,
-		format: '<?php echo $format; ?>'<?php if($timezone != 'SCW_NONE'){ ?>,
-		timezone: <?php echo $timezone; } ?>
-	});
-
-	<?php if( $color != '' ){ ?>
-	$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('color', '<?php echo $color; ?>');
-	<?php } ?>
-
-	<?php if( $bgcolor != '' ){ ?>
-	$('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('backgroundColor', '<?php echo $bgcolor; ?>');
-	<?php } ?>
-
-	$('.datepicker').datepicker({
-		dateFormat : 'dd-mm-yy'
-	});
-});
-
-})(jQuery);
-//-->
-</script>
+<script>(function($) { $(document).ready(function($) { var event_month = <?php echo $month; ?> - 1; desc = '<?php echo $event_display; ?>'; eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0); $('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({ <?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate, description: desc, format: '<?php echo $format; ?>'<?php if($timezone != 'SCW_NONE'){ ?>, timezone: <?php echo $timezone; } ?> }); <?php if( $color != '' ){ ?> $('#shailan-countdown-<?php echo $this->number . "_" .$countdown_shortcode_ids; ?>').css('color', '<?php echo $color; ?>'); <?php } ?> <?php if( $bgcolor != '' ){ ?> $('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').css('backgroundColor', '<?php echo $bgcolor; ?>'); <?php } ?> $('.datepicker').datepicker({ dateFormat : 'dd-mm-yy' }); }); })(jQuery);</script>
 		</div>
 
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title:', 'countdown-widget'); ?> <small><a href="https://metinsaylan.com/wordpress/plugins/countdown/help/#title" target="_blank" rel="external">(?)</a></small> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
@@ -337,19 +292,7 @@ $(document).ready(function($) {
   function print_scripts( $instance = null ){
     if( !wp_doing_ajax() ){
       $cd_settings = $this->get_plugin_settings();
-    ?>
-    <script type="text/javascript">
-    (function($) {
-    	$.countdown.regional['custom'] = {
-    		labels: ['<?php echo $cd_settings['label_years']; ?>', '<?php echo $cd_settings['label_months']; ?>', '<?php echo $cd_settings['label_weeks']; ?>', '<?php echo $cd_settings['label_days']; ?>', '<?php echo $cd_settings['label_hours']; ?>', '<?php echo $cd_settings['label_minutes']; ?>', '<?php echo $cd_settings['label_seconds']; ?>'],
-    		labels1: ['<?php echo $cd_settings['label_year']; ?>', '<?php echo $cd_settings['label_month']; ?>', '<?php echo $cd_settings['label_week']; ?>', '<?php echo $cd_settings['label_day']; ?>', '<?php echo $cd_settings['label_hour']; ?>', '<?php echo $cd_settings['label_minute']; ?>', '<?php echo $cd_settings['label_second']; ?>'],
-    		compactLabels: ['y', 'a', 'h', 'g'],
-    		whichLabels: null,
-    		timeSeparator: ':', isRTL: false};
-    	$.countdown.setDefaults($.countdown.regional['custom']);
-    })(jQuery);
-    </script>
-    <?php
+    ?><script>(function($) { $.countdown.regional['custom'] = { labels: ['<?php echo $cd_settings['label_years']; ?>', '<?php echo $cd_settings['label_months']; ?>', '<?php echo $cd_settings['label_weeks']; ?>', '<?php echo $cd_settings['label_days']; ?>', '<?php echo $cd_settings['label_hours']; ?>', '<?php echo $cd_settings['label_minutes']; ?>', '<?php echo $cd_settings['label_seconds']; ?>'], labels1: ['<?php echo $cd_settings['label_year']; ?>', '<?php echo $cd_settings['label_month']; ?>', '<?php echo $cd_settings['label_week']; ?>', '<?php echo $cd_settings['label_day']; ?>', '<?php echo $cd_settings['label_hour']; ?>', '<?php echo $cd_settings['label_minute']; ?>', '<?php echo $cd_settings['label_second']; ?>'], compactLabels: ['y', 'a', 'h', 'g'], whichLabels: null, timeSeparator: ':', isRTL: false}; $.countdown.setDefaults($.countdown.regional['custom']); })(jQuery);</script><?php
 
     }
   }
@@ -503,7 +446,7 @@ $(document).ready(function($) {
 
 ?>
 <style type="text/css">
-.hasCountdown{text-shadow:transparent 0 1px 1px;overflow:hidden;padding:5px}.countdown_rtl{direction:rtl}.countdown_holding span{background-color:#ccc}.countdown_row{clear:both;width:100%;text-align:center}.countdown_show1 .countdown_section{width:98%}.countdown_show2 .countdown_section{width:48%}.countdown_show3 .countdown_section{width:32.5%}.countdown_show4 .countdown_section{width:24.5%}.countdown_show5 .countdown_section{width:19.5%}.countdown_show6 .countdown_section{width:16.25%}.countdown_show7 .countdown_section{width:14%}.countdown_section{display:block;float:left;font-size:75%;text-align:center;margin:3px 0}.countdown_amount{font-size:200%}.countdown_descr{display:block;width:100%}a.countdown_infolink{display:block;border-radius:10px;width:14px;height:13px;float:right;font-size:9px;line-height:13px;font-weight:700;text-align:center;position:relative;top:-15px;border:1px solid}#countdown-preview{padding:10px} /* Widgets Start Here */ <?php
+.hasCountdown{text-shadow:transparent 0 1px 1px;overflow:hidden;padding:5px}.countdown_rtl{direction:rtl}.countdown_holding span{background-color:#ccc}.countdown_row{clear:both;width:100%;text-align:center}.countdown_show1 .countdown_section{width:98%}.countdown_show2 .countdown_section{width:48%}.countdown_show3 .countdown_section{width:32.5%}.countdown_show4 .countdown_section{width:24.5%}.countdown_show5 .countdown_section{width:19.5%}.countdown_show6 .countdown_section{width:16.25%}.countdown_show7 .countdown_section{width:14%}.countdown_section{display:block;float:left;font-size:75%;text-align:center;margin:3px 0}.countdown_amount{font-size:200%}.countdown_descr{display:block;width:100%}a.countdown_infolink{display:block;border-radius:10px;width:14px;height:13px;float:right;font-size:9px;line-height:13px;font-weight:700;text-align:center;position:relative;top:-15px;border:1px solid}#countdown-preview{padding:10px}<?php
 
 		foreach ($all_widgets as $key => $widget){
 			$widget_id = $this->id_base . '-' . $key;
@@ -543,12 +486,12 @@ $(document).ready(function($) {
 			}
 		}
 
-	echo "\n</style>\n";
+	echo "</style>\n";
 
 
 	}
 
-  function header( $instance = null ){}
+	function header( $instance = null ){}
 	function footer( $instance = null ){}
 
 
