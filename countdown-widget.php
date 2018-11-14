@@ -511,3 +511,15 @@ function wcw_register_widget(){
 	return register_widget("shailan_CountdownWidget");
 }
 add_action( 'widgets_init', 'wcw_register_widget' );
+
+// Settings link
+function wcw_add_settings_link($links) {
+    $settings_link = '<a href="options-general.php?page=wp-countdown-widget">Settings</a>';
+    $donate_link = '<a href="https://metinsaylan.com/donate">Donate</a>';
+    array_push( $links, $settings_link );
+    array_push( $links, $donate_link );
+    return $links;
+}
+
+$plugin = plugin_basename(__FILE__);
+add_filter( "plugin_action_links_$plugin", 'wcw_add_settings_link' );
