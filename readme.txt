@@ -57,5 +57,7 @@ Please back up your precious data before upgrading plugins.
 * Fixed options page capabilities issue.
 * Fixed plugin URL
 * Updated support link title attribute
+* Removed unused plugin path function
+* Added settings link to plugins page
 
 Please visit [Countdown Widget Changelog](https://github.com/metinsaylan/wordpress-countdown-widget/blob/master/CHANGELOG.md) on Github for previous versions.
