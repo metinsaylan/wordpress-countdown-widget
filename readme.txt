@@ -4,7 +4,7 @@ Donate link: https://metinsaylan.com/donate/
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
 Requires at least: 4.7
 Tested up to: 4.9.8
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 License: GPLv2 or later
 
 Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.
