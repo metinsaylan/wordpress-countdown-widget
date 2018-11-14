@@ -507,4 +507,7 @@ class shailan_CountdownWidget extends WP_Widget {
 } // class shailan_CountdownWidget
 
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("shailan_CountdownWidget");'));
+function wcw_register_widget(){
+	return register_widget("shailan_CountdownWidget");
+}
+add_action( 'widgets_init', 'wcw_register_widget' );
