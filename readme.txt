@@ -53,11 +53,9 @@ Please back up your precious data before upgrading plugins.
 
 == Changelog ==
 
-= 3.1.1 = 
-* Added two more screenshots
-* Fixed links & descriptions on readme
-* Updated tested upto version
-* Fixed admin widget styling error
-* Removed unnecessary type attributes from javascript snippets
+= 3.1.2 =
+* Fixed options page capabilities issue.
+* Fixed plugin URL
+* Updated support link title attribute
 
 Please visit [Countdown Widget Changelog](https://github.com/metinsaylan/wordpress-countdown-widget/blob/master/CHANGELOG.md) on Github for previous versions.

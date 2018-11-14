@@ -1,9 +1,9 @@
 <?php
 /*
 * Plugin Name: Countdown Widget
-* Plugin URI: https://metinsaylan.com/projects/wordpress/countdown-widget/
+* Plugin URI: https://metinsaylan.com/wordpress/plugins/countdown
 * Description: Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.
-* Version: 3.1.1
+* Version: 3.1.2
 * Author: Metin Saylan
 * Author URI: https://metinsaylan.com/
 * Text Domain: countdown-widget
@@ -22,8 +22,17 @@ class shailan_CountdownWidget extends WP_Widget {
     /** constructor */
     function __construct() {
 
-		$widget_ops = array( 'classname' => 'shailan_CountdownWidget', 'description' => __( 'Countdown/countup timer widget' , 'countdown-widget') );
-		parent::__construct( 'shailan-countdown-widget', __('CountDown Widget ⌛', 'countdown-widget'), $widget_ops );
+		$widget_ops = array( 
+			'classname' => 'shailan_CountdownWidget', 
+			'description' => __( 'Countdown/countup timer widget' , 'countdown-widget') 
+		);
+		
+		parent::__construct( 
+			'shailan-countdown-widget', 
+			__('CountDown Widget ⌛', 'countdown-widget'), 
+			$widget_ops 
+		);
+
 		$this->alt_option_name = 'widget_shailan_countdown';
 
 		add_action( 'admin_init', array(&$this, 'common_header'), 100, 1 );
@@ -159,7 +168,7 @@ class shailan_CountdownWidget extends WP_Widget {
 				<div id="shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>" class="shailan-countdown-<?php echo $this->number ?> countdown" <?php echo $style; ?>></div>
 
 				<?php
-				if( !$link ){echo '<div '.$style.'><small><a href="https://metinsaylan.com/wordpress/plugins/countdown/" title="Get Countdown Widget for WordPress" class="countdown_infolink">i</a></small></div>';};
+				if( !$link ){echo '<div '.$style.'><small><a href="https://metinsaylan.com/wordpress/plugins/countdown/" title="WordPress Countdown Plugin" class="countdown_infolink">i</a></small></div>';};
 				?>
 
 <script>(function($){$(document).ready(function($) { var event_month = <?php echo $month; ?> - 1; desc = '<?php $event = addslashes(force_balance_tags($event)); echo $event; ?>'; eventDate = new Date(<?php echo $year; ?>, event_month, <?php echo $day; ?>, <?php echo $hour; ?>, <?php echo $minutes; ?>, <?php echo $seconds; ?>, 0); $('#shailan-countdown-<?php echo $this->number . "_" . $countdown_shortcode_ids; ?>').countdown({ <?php if($direction == 'down'){ ?>until<?php } else { ?>since<?php } ?>: eventDate, description: desc, format: '<?php echo $format; ?>'<?php if($timezone != 'SCW_NONE'){ ?>, timezone: <?php echo $timezone; } ?> }); }); })(jQuery);</script>
@@ -346,7 +355,7 @@ class shailan_CountdownWidget extends WP_Widget {
     	$page = add_options_page(
     		__('WordPress Countdown Widget', 'countdown-widget'),
     		__('Countdown Widget', 'countdown-widget'),
-    		'edit_themes',
+    		'manage_options',
     		$this->options_page,
     		array( &$this, 'options_page')
     	);
