@@ -1,13 +1,13 @@
 <?php
-/*
-* Plugin Name: Countdown Widget
-* Plugin URI: https://wpassist.me/plugins/countdown/
-* Description: Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations. Visit settings page to translate labels. <a href="https://wpassist.me/donate">❤️ Donate to This Plugin</a>
-* Version: 3.1.7
-* Author: Metin Saylan
-* Author URI: https://metinsaylan.com/
-* Text Domain: countdown-widget
-*/
+/**
+ * Plugin Name: Countdown Widget
+ * Plugin URI: https://wpassist.me/plugins/countdown/
+ * Description: Countdown / Countup Timer Widget + Shortcode. Supports multiple instances, Easy translation on settings page.
+ * Version: 3.1.7
+ * Author: WP Assist
+ * Author URI: https://wpassist.me/
+ * Text Domain: countdown-widget
+ */
 
 include_once('countdown-util.php'); // Utility functions for backward compatibility
 include_once('countdown-shortcodes.php'); // Shortcode functions
@@ -120,16 +120,15 @@ class shailan_CountdownWidget extends WP_Widget {
 
     }
 
-    function widget($args, $instance) {
-    global $post, $countdown_shortcode_ids;
+    function widget( $args, $instance ) {
+      global $post, $countdown_shortcode_ids;
 
-        extract( $args );
+      extract( $args );
+      $widget_options = wp_parse_args( $instance, $this->defaults );
+      extract( $widget_options, EXTR_SKIP );
 
-    $widget_options = wp_parse_args( $instance, $this->defaults );
-    extract( $widget_options, EXTR_SKIP );
-
-    // Get a new id
-    $countdown_shortcode_ids++;
+      // Get a new id
+      $countdown_shortcode_ids++;
 
     if( !empty( $instance['link'] ) ){ $link = (bool) $link; }
 
@@ -585,7 +584,7 @@ a.countdown_infolink{display:block;border-radius:10px;width:14px;height:13px;flo
 // register widget
 add_action( 'widgets_init', 'wcw_register_widget' );
 function wcw_register_widget(){
-  return register_widget("shailan_CountdownWidget");
+  return register_widget( "shailan_CountdownWidget" );
 }
 
 
@@ -594,9 +593,7 @@ $plugin = plugin_basename(__FILE__);
 add_filter( "plugin_action_links_$plugin", "wcw_add_settings_link" );
 function wcw_add_settings_link($links) {
   $settings_link = '<a href="options-general.php?page=wp-countdown-widget">Settings</a>';
-  $donate_link = '<a href="https://wpassist.me/donate">Donate</a>';
   array_push( $links, $settings_link );
-  array_push( $links, $donate_link );
   return $links;
 }
 
