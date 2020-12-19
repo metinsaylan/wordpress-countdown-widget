@@ -1,7 +1,12 @@
-<div class="wrap options-page">
+<div id="ms-options" class="wrap options-page">
 	<h2><?php echo esc_html( $title ); ?></h2>
 
-<div id="nav"><?php if(!empty($navigation)){echo $navigation;} ?></div>
+<div class="nav">
+	<a class="nav-link" href="https://wpassist.me/plugins/countdown/">Plugin page</a>
+	<a class="nav-link" href="https://wpassist.me/plugins/countdown/help/">Usage</a>
+	<a class="nav-link" href="https://wpassist.me/docs/countdown-widget-shortcode/">Shortcode</a>
+	<a class="nav-link" href="https://wpassist.me/donate/">❤️ Donate</a>
+</div>
 
 <div id="notifications">
 <?php if ( isset($_GET['message']) && isset($messages[$_GET['message']]) ) { ?>
@@ -33,7 +38,7 @@ switch ( $field['type'] ) {
 	case 'close': ?>
 
 <div class="submit-wrap">
-	<?php submit_button( 'Save Changes', 'primary', 'save', false ); ?>
+	<?php submit_button( 'Save Changes', 'primary', 'save', false ); ?> <a href="https://wpassist.me/donate/" target="_blank" class="button-secondary">❤️ <?php _e('Donate'); ?></a> 
 </div>
 
 </div><!-- settings-wrap -->
@@ -135,12 +140,17 @@ case 'picker':
 <input type="hidden" name="action" value="save" />
 </form>
 
-<p>Danger Zone</p>
-<form method="post"><?php submit_button( 'Reset Options', 'secondary', 'reset', false ); ?> <input type="hidden" name="action" value="reset" /> </form>
+<div class="danger">
+<h3 class="inline">Danger Zone</h3><small>This will remove all your saved settings.</small>
+<form method="post">
+<?php submit_button( 'Reset Options', 'secondary', 'reset', false ); ?> 
+<input type="hidden" name="action" value="reset" /> 
+</form>
+</div>
 
 </div><!-- /options-wrap -->
 
-<div id="debug-info">
+<div class="debug">
 	<?php if(WP_DEBUG){ ?>
 	<h3>Debug information</h3>
 	<p>You are seeing this because your WP_DEBUG variable is set to true.</p>

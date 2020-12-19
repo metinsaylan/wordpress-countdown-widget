@@ -2,7 +2,22 @@
 
 You can find all previous changes to [WordPress CountDown Widget](https://metinsaylan.com/projects/wordpress/countdown-widget/) on this page.
 
-= 3.0 =
+### 3.1.4
+* Updated options page styling
+* Added Donate button
+* Added Settings link to widget
+
+### 3.1.3
+* Updated tested WordPress version.
+
+### 3.1.2
+* Fixed options page capabilities issue.
+* Fixed plugin URL
+* Updated support link title attribute
+* Removed unused plugin path function
+* Added settings link to plugins page
+
+### 3.0
 * **Note** This is a huge update to the plugin. If you have active countdown widgets, they can be effected from the update.
 * Fixed help and doc links.
 * Added options page for customizing labels

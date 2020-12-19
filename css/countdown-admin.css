@@ -1,13 +1,69 @@
-div.options-page{ max-width: 740px }
-.settings-wrap { background: #fff; padding: 10px; }
+.inline{ display: inline-block }
+
+#ms-options{ max-width: 740px; font-size: 16px }
+#ms-options p{ font-size: 16px }
+#ms-options h3{ margin-top: 0 }
+#ms-options small {
+  display: inline-block;
+  font-size: 1em;
+  color: #888;
+  padding: 6px;
+  font-style: italic;
+}
+
+#ms-options input[type="text"], 
+#ms-options textarea, 
+#ms-options select {
+    font-size: 16px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #ffc;
+}
+
+#ms-options label {
+  display: inline-block;
+  width: 25%;
+}
+
+.nav, .settings-wrap{
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
+	margin-bottom: 20px;
+}
+
+.settings-wrap {
+  padding: 10px;
+}
+
 .ms-options-input {
-    display: block;
-    border-bottom: 1px solid #eee;
-    padding: 4px;
+  display: block;
+  border-bottom: 1px solid #eee;
+  padding: 4px;
 }
-.ms-options-input label {
-    display: inline-block;
-    width: 25%;
-}
+
 .ms-options-paragraph { margin-bottom: 20px; }
 .submit-wrap{ text-align: right; padding-top: 8px }
+
+/* Navigation */
+.nav {
+  line-height: 40px;
+  margin-top: 10px;
+}
+
+.nav a{ text-decoration: none; display: inline-block; padding: 0 15px; border-right: 1px solid #f1f1f1; }
+.nav a:hover{ background-color: #eee }
+
+/* Debug */
+.debug, .danger {
+	padding: 20px;
+	margin: 15px 0;
+	border-radius: 6px;
+	background: rgba(0,0,0,0.1);
+}
+
+.debug pre{ margin-bottom: 0 }
+
+.danger {
+  background: rgba(255, 17, 0, 0.15);
+}
