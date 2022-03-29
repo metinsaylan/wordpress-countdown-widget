@@ -1,6 +1,11 @@
 # Countdown Widget Changelog
 
-You can find all previous changes to [WordPress CountDown Widget](https://metinsaylan.com/projects/wordpress/countdown-widget/) on this page.
+See all changes on Github [https://github.com/metinsaylan/wordpress-countdown-widget/commits/master](https://github.com/metinsaylan/wordpress-countdown-widget/commits/master).
+
+### 3.1.9
+* fixed help links
+* implemented auto deploy from github release
+* update compatible wordpress version
 
 ### 3.1.4
 * Updated options page styling
@@ -94,7 +99,7 @@ You can find all previous changes to [WordPress CountDown Widget](https://metins
 * Added: Shortcode support. Read more on [countdown shortcode usage](http://metinsaylan.com/4579/how-to-add-a-countdown-to-your-post-using-shortcode/)
 
 ### 2.3.1
-* Changed default format string. See [formatting help](http://metinsaylan.com/wordpress/plugins/countdown/help/#format) for more details.
+* Changed default format string. See [formatting help](http://metinsaylan.com/wordpress/plugins/countdown-widget/help/#format) for more details.
 
 ### 2.3
 * Removed border around the countdown.

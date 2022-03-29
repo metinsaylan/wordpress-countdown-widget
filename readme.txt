@@ -4,8 +4,8 @@ Donate link: https://wpassist.me/donate/
 Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock, animated
 Requires at least: 4.7
 Requires PHP: 7.0
-Tested up to: 5.4.1
-Stable tag: 3.1.7
+Tested up to: 5.9.2
+Stable tag: 3.1.9
 License: GPLv2 or later
 
 Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.
@@ -27,7 +27,7 @@ You can watch videos below on WordPress.org:
 
 *Documentation & Simple Tutorials to Get You Started:*
 
-* [Countdown Widget Help](https://wpassist.me/plugins/countdown/help/)
+* [Countdown Widget Help](https://wpassist.me/plugins/countdown-widget/help/)
 * [Countdown Shortcode Usage](https://wpassist.me/docs/countdown-widget-shortcode/)
 * [Countdown Shortcode Samples](https://wpassist.me/how-to-add-a-countdown-to-your-post-using-shortcode/)
 * [Customizing Countdown Widget Using CSS](https://wpassist.me/customizing-countdown-widget-using-css/)

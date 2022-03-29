@@ -2,8 +2,8 @@
 	<h2><?php echo esc_html( $title ); ?></h2>
 
 <div class="nav">
-	<a class="nav-link" href="https://wpassist.me/plugins/countdown/">Plugin page</a>
-	<a class="nav-link" href="https://wpassist.me/plugins/countdown/help/">Usage</a>
+	<a class="nav-link" href="https://wpassist.me/plugins/countdown-widget/">Plugin page</a>
+	<a class="nav-link" href="https://wpassist.me/plugins/countdown-widget/help/">Usage</a>
 	<a class="nav-link" href="https://wpassist.me/docs/countdown-widget-shortcode/">Shortcode</a>
 	<a class="nav-link" href="https://wpassist.me/donate/">❤️ Donate</a>
 </div>

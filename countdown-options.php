@@ -1,7 +1,7 @@
 <?php
 
 function wcw_help_icon($hash){
-	return " <a href=\"https://wpassist.me/plugins/countdown/help/#".$hash."\" target=\"_blank\" class=\"help-icon\">(?)</a>";
+	return " <a href=\"https://wpassist.me/plugins/countdown-widget/help/#".$hash."\" target=\"_blank\" class=\"help-icon\">(?)</a>";
 }
 
 // Define plugin options

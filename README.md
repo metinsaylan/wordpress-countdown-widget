@@ -15,7 +15,7 @@
 
 *Documentation & Simple Tutorials to Get You Started:*
 
-* [Countdown Widget Help](https://wpassist.me/plugins/countdown/help/)
+* [Countdown Widget Help](https://wpassist.me/plugins/countdown-widget/help/)
 * [Countdown Shortcode Usage](https://wpassist.me/docs/countdown-widget-shortcode/)
 * [Countdown Shortcode Samples](https://wpassist.me/how-to-add-a-countdown-to-your-post-using-shortcode/)
 * [Customizing Countdown Widget Using CSS](https://wpassist.me/customizing-countdown-widget-using-css/)
