@@ -3,7 +3,7 @@
  * Plugin Name: Countdown Widget
  * Plugin URI: https://wpassist.me/plugins/countdown-widget/
  * Description: Countdown / Countup Timer Widget + Shortcode. Supports multiple instances, Easy translation on settings page.
- * Version: 3.1.9
+ * Version: 3.1.9.1
  * Author: WPAssist.me
  * Author URI: https://wpassist.me/
  * Text Domain: countdown-widget

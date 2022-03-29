@@ -1,6 +1,6 @@
 {
   "name": "wordpress-countdown-widget",
-  "version": "3.1.9",
+  "version": "3.1",
   "description": "Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.",
   "main": "index.js",
   "scripts": {
