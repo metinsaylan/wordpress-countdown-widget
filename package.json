@@ -1,0 +1,30 @@
+{
+  "name": "wordpress-countdown-widget",
+  "version": "3.1.8",
+  "description": "Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metinsaylan/wordpress-countdown-widget.git"
+  },
+  "keywords": [
+    "countdown",
+    "count-up",
+    "multi-widget",
+    "widget",
+    "jquery",
+    "shortcode",
+    "timer",
+    "clock",
+    "animated"
+  ],
+  "author": "Metin Saylan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metinsaylan/wordpress-countdown-widget/issues"
+  },
+  "homepage": "https://github.com/metinsaylan/wordpress-countdown-widget#readme"
+}
