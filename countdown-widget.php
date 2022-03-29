@@ -130,33 +130,31 @@ class shailan_CountdownWidget extends WP_Widget {
       // Get a new id
       $countdown_shortcode_ids++;
 
-    if( !empty( $instance['link'] ) ){ $link = (bool) $link; }
+      if( !empty( $instance['link'] ) ){ $link = (bool) $link; }
 
-    $style = "";
+      $style = "";
 
-    if ( ( $timestamp = strtotime( $date ) ) !== false ) {
-      $month  = date("n", $timestamp );
-      $day  = date("j", $timestamp );
-      $year   = date("Y", $timestamp );
-    }
-
-    // If this is not a widget
-    if( isset( $isWidget ) && false === $isWidget ){
-
-      $style=" style=\"";
-
-      if(!empty($bgcolor)){
-        $style .= "background-color:".$bgcolor.";";
+      if ( ( $timestamp = strtotime( $date ) ) !== false ) {
+        $month  = date("n", $timestamp );
+        $day  = date("j", $timestamp );
+        $year   = date("Y", $timestamp );
       }
 
-      if(!empty($color)){ $style .=  " color:".$color. ";"; }
-      if(!empty($width) && $width>0){ $style .= " width:".$width."px;"; }
-      if(!empty($radius) && $radius>0){ $style .= " border-radius:".$radius."px;"; }
-        $style .= " margin:0px auto; \"";
+      // If this is not a widget
+      if( isset( $isWidget ) && false === $isWidget ){
 
-    }
+        $style=" style=\"";
 
+        if( !empty($bgcolor) ){
+          $style .= "background-color:".$bgcolor.";";
+        }
 
+        if( !empty($color) ){ $style .=  " color:".$color. ";"; }
+        if( !empty($width) && $width>0 ){ $style .= " width:".$width."px;"; }
+        if( !empty($radius) && $radius>0 ){ $style .= " border-radius:".$radius."px;"; }
+          $style .= " margin:0px auto; \"";
+
+      }
 
       ?>
           <?php echo $before_widget; ?>
