@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/metinsaylan/wordpress-countdown-widget#readme",
   "devDependencies": {
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.3",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^5.1.0",
     "grunt-wp-i18n": "^1.0.3"
