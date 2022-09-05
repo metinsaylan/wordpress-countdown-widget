@@ -1,11 +1,11 @@
-# Copyright (C) 2022 WP Assist
+# Copyright (C) 2022 WPAssist.me
 # This file is distributed under the same license as the Countdown Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Countdown Widget 3.1.7\n"
+"Project-Id-Version: Countdown Widget 3.1.9.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wordpress-countdown-widget\n"
-"POT-Creation-Date: 2022-03-29 11:36:19+00:00\n"
+"POT-Creation-Date: 2022-09-05 13:32:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,10 +13,6 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
-
-#: countdown-options-page.php:41
-msgid "Donate"
-msgstr ""
 
 #: countdown-options.php:11
 msgid "Edit Labels"
@@ -134,7 +130,7 @@ msgstr ""
 msgid "Remove link"
 msgstr ""
 
-#: countdown-widget.php:416
+#: countdown-widget.php:421
 msgid "WordPress Countdown Widget"
 msgstr ""
 
@@ -142,11 +138,11 @@ msgstr ""
 msgid "Countdown Widget"
 msgstr ""
 
-#: countdown-widget.php:501
+#: countdown-widget.php:507
 msgid "Settings are saved."
 msgstr ""
 
-#: countdown-widget.php:502
+#: countdown-widget.php:508
 msgid "Settings are reset."
 msgstr ""
 
@@ -161,7 +157,7 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "WP Assist"
+msgid "WPAssist.me"
 msgstr ""
 
 #. Author URI of the plugin/theme

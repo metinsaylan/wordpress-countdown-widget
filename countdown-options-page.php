@@ -38,7 +38,7 @@ switch ( $field['type'] ) {
 	case 'close': ?>
 
 <div class="submit-wrap">
-	<?php submit_button( 'Save Changes', 'primary', 'save', false ); ?> <a href="https://wpassist.me/donate/" target="_blank" class="button-secondary">❤️ <?php _e('Donate'); ?></a> 
+  <?php submit_button( 'Save Changes', 'primary', 'save', false ); ?>
 </div>
 
 </div><!-- settings-wrap -->
@@ -137,6 +137,7 @@ case 'picker':
 }
 ?>
 
+<?php if($wpcw_nonce) { echo "<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"{$wpcw_nonce}\" />"; } ?>
 <input type="hidden" name="action" value="save" />
 </form>
 

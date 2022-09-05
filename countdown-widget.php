@@ -3,7 +3,7 @@
  * Plugin Name: Countdown Widget
  * Plugin URI: https://wpassist.me/plugins/countdown-widget/
  * Description: Countdown / Countup Timer Widget + Shortcode. Supports multiple instances, Easy translation on settings page.
- * Version: 3.1.9.1
+ * Version: 3.1.9.2
  * Author: WPAssist.me
  * Author URI: https://wpassist.me/
  * Text Domain: countdown-widget
@@ -379,27 +379,32 @@ class shailan_CountdownWidget extends WP_Widget {
         wp_enqueue_style( "countdown-widget-admin", plugins_url( '/css/countdown-admin.css' , __FILE__ ) , false, null, "all");
 
         if ( @$_REQUEST['action'] && 'save' == $_REQUEST['action'] ) {
+          if( check_admin_referer( 'countdown-widget-options-admin' ) ){
+            // Save settings
+            $settings = $this->get_settings();
 
-          // Save settings
-          $settings = $this->get_settings();
-
-          // Set updated values
-          foreach( $this->options as $option ){
-            if( array_key_exists( 'id', $option ) ){
-              if( $option['type'] == 'checkbox' && empty( $_REQUEST[ $option['id'] ] ) ) {
-                $settings[ $option['id'] ] = 'off';
-              } elseif( array_key_exists( $option['id'], $_REQUEST ) ) {
-                $settings[ $option['id'] ] = $_REQUEST[ $option['id'] ];
-              } else {
-                // hmm no key here?
+            // Set updated values
+            foreach( $this->options as $option ){
+              if( array_key_exists( 'id', $option ) ){
+                if( $option['type'] == 'checkbox' && empty( $_REQUEST[ $option['id'] ] ) ) {
+                  $settings[ $option['id'] ] = 'off';
+                } elseif( array_key_exists( $option['id'], $_REQUEST ) ) {
+                  if( $option['type'] === 'text' ) {
+                    $settings[ $option['id'] ] = wp_strip_all_tags($_REQUEST[ $option['id'] ]); 
+                  } else {
+                    $settings[ $option['id'] ] = $_REQUEST[ $option['id'] ];
+                  }
+                } else {
+                  // hmm no key here?
+                }
               }
             }
-          }
 
-          // Save the settings
-          update_option( $this->settings_key, $settings );
-          header("Location: admin.php?page=" . $this->options_page . "&saved=true&message=1");
-          die;
+            // Save the settings
+            update_option( $this->settings_key, $settings );
+            header("Location: admin.php?page=" . $this->options_page . "&saved=true&message=1");
+            die;
+          }
         } else if( @$_REQUEST['action'] && 'reset' == $_REQUEST['action'] ) {
 
           // Start a new settings array
@@ -490,12 +495,13 @@ class shailan_CountdownWidget extends WP_Widget {
   }
 
   function options_page(){
-    global $options, $current;
+    global $options, $current, $wpcw_nonce;
 
     $title = "WordPress Countdown Widget Options";
 
     $options = $this->options;
     $current = $this->get_plugin_settings();
+    $wpcw_nonce = wp_create_nonce( 'countdown-widget-options-admin' );
 
     $messages = array(
       "1" => __("Settings are saved.", "countdown-widget"),
