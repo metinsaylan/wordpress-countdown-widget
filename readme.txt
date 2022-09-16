@@ -5,7 +5,7 @@ Tags: countdown, count-up, multi-widget, widget, jquery, shortcode, timer, clock
 Requires at least: 4.7
 Requires PHP: 7.0
 Tested up to: 6.0.2
-Stable tag: 3.1.9.2
+Stable tag: 3.1.9.3
 License: GPLv2 or later
 
 Countdown/Countup Timer Widget + Shortcode. Supports multiple instances, easy translation & customizations.
@@ -62,6 +62,10 @@ You can ask your questions to me at metinsaylan-at-gmail-com.
 Please back up your precious data before upgrading plugins.
 
 == Changelog ==
+
+= 3.1.9.3 =
+* fixed XSS issue on widget page
+* update compatible wordpress version
 
 = 3.1.9.2 =
 * fixed XSS issue on options page

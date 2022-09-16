@@ -10,10 +10,10 @@
 
 <div id="notifications">
 <?php if ( isset($_GET['message']) && isset($messages[$_GET['message']]) ) { ?>
-<div id="message" class="updated fade"><p><?php echo $messages[$_GET['message']]; ?></p></div>
+<div id="message" class="updated fade"><p><?php echo esc_html($messages[$_GET['message']]); ?></p></div>
 <?php } ?>
 <?php if ( isset($_GET['error']) && isset($errors[$_GET['error']]) ) { ?>
-<div id="message" class="error fade"><p><?php echo $errors[$_GET['error']]; ?></p></div>
+<div id="message" class="error fade"><p><?php echo esc_html($errors[$_GET['error']]); ?></p></div>
 <?php } ?>
 </div><!-- /notifications -->
 
