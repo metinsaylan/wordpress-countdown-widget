@@ -400,6 +400,16 @@ class shailan_CountdownWidget extends WP_Widget {
       wp_enqueue_script('jquery');
       wp_enqueue_script('jquery-ui-datepicker');
       wp_enqueue_style('jquery-ui-custom-css', plugins_url('css/jquery-ui.min.css', __FILE__));
+      
+      $page = add_options_page(
+        __('WordPress Countdown Widget', 'countdown-widget'),
+        __('Countdown Widget', 'countdown-widget'),
+        'manage_options',
+        $this->options_page,
+        array( &$this, 'options_page')
+      );
+      
+      if( !array_key_exists( 'page', $_GET ) ) return;
 
       /* If we are on options page */
       if ( @$_GET['page'] == $this->options_page ) {
@@ -445,13 +455,6 @@ class shailan_CountdownWidget extends WP_Widget {
 
       }
 
-      $page = add_options_page(
-        __('WordPress Countdown Widget', 'countdown-widget'),
-        __('Countdown Widget', 'countdown-widget'),
-        'manage_options',
-        $this->options_page,
-        array( &$this, 'options_page')
-      );
     }
   }
 
